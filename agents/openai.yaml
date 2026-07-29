@@ -1,0 +1,4 @@
+interface:
+  display_name: "Craft UI"
+  short_description: "Build distinctive, high-craft web interfaces"
+  default_prompt: "Use $craft-ui to design or refine this interface with product-specific composition, content-driven page geometry, exact components, disciplined spacing, and purposeful motion."

@@ -1,0 +1,486 @@
+{
+  "schemaVersion": 1,
+  "dimensions": {
+    "intent": "What the user is trying to do: execute, navigate, choose, disclose, inspect, or understand.",
+    "apply": "When the choice takes effect: immediate, submit, navigation, or none.",
+    "scope": "What the control affects: row, section, page, global, form, or marketing.",
+    "space": "Whether the context is compact or regular.",
+    "content": "Whether labels are plain, descriptive, searchable, grouped, rich, or tabular.",
+    "risk": "Whether the action is normal or destructive.",
+    "optionCount": "How many choices or actions are present."
+  },
+  "components": [
+    {
+      "id": "button",
+      "publicName": "Button",
+      "family": "actions",
+      "intents": ["execute"],
+      "useWhen": ["A visible label triggers one action in the current context.", "The action needs primary, supporting, quiet, or destructive emphasis."],
+      "avoidWhen": ["The destination has a URL.", "The control is an icon-only repeated utility.", "Several actions need a shared container."],
+      "neighbors": ["link-button", "compact-button", "button-group", "dropdown"],
+      "fit": { "apply": ["immediate", "submit"], "scope": ["form", "section", "page", "row"], "space": ["regular"], "content": ["plain"], "risk": ["normal", "destructive"] }
+    },
+    {
+      "id": "button-group",
+      "publicName": "Button Group",
+      "family": "actions",
+      "intents": ["action-group"],
+      "useWhen": ["Two or three closely related actions should remain visible together."],
+      "avoidWhen": ["The control represents one selected value.", "More than three actions can be grouped in a menu.", "Actions are unrelated but merely adjacent."],
+      "neighbors": ["button", "segmented-control", "dropdown"],
+      "fit": { "apply": ["immediate"], "scope": ["section", "page"], "space": ["compact", "regular"], "content": ["plain"], "optionCount": { "min": 2, "max": 3 } }
+    },
+    {
+      "id": "compact-button",
+      "publicName": "Compact Button",
+      "family": "actions",
+      "intents": ["utility-action", "overlay-trigger"],
+      "useWhen": ["A familiar icon performs a compact utility action.", "A row, toolbar, or header needs an icon-dominant trigger with an accessible name and usually a tooltip."],
+      "avoidWhen": ["The action label carries important meaning.", "The icon is unfamiliar.", "The control is the main call to action."],
+      "neighbors": ["button", "dropdown", "tooltip"],
+      "fit": { "apply": ["immediate"], "scope": ["row", "section", "page"], "space": ["compact"], "content": ["plain"], "risk": ["normal"] }
+    },
+    {
+      "id": "fancy-button",
+      "publicName": "Fancy Button",
+      "family": "actions",
+      "intents": ["promotional-action"],
+      "useWhen": ["A rare, high-attention marketing or milestone action earns decorative emphasis."],
+      "avoidWhen": ["The surface is a dense product UI.", "The action repeats in rows or cards.", "Decoration would compete with task hierarchy."],
+      "neighbors": ["button", "link-button"],
+      "fit": { "apply": ["navigation", "submit"], "scope": ["marketing"], "space": ["regular"], "content": ["plain"], "risk": ["normal"] }
+    },
+    {
+      "id": "link-button",
+      "publicName": "Link Button",
+      "family": "actions",
+      "intents": ["navigate"],
+      "useWhen": ["The interaction navigates to a real destination but needs button-like prominence."],
+      "avoidWhen": ["The interaction mutates data or opens a local UI.", "A normal text link provides sufficient emphasis."],
+      "neighbors": ["button", "fancy-button"],
+      "fit": { "apply": ["navigation"], "scope": ["section", "page", "marketing"], "space": ["regular"], "content": ["plain"], "risk": ["normal"] }
+    },
+    {
+      "id": "avatar",
+      "publicName": "Avatar",
+      "family": "identity",
+      "intents": ["identity"],
+      "useWhen": ["Representing one person, organization, or account."],
+      "avoidWhen": ["Showing a generic feature icon.", "Representing several overlapping identities."],
+      "neighbors": ["avatar-group", "avatar-group-compact"]
+    },
+    {
+      "id": "avatar-group",
+      "publicName": "Avatar Group",
+      "family": "identity",
+      "intents": ["identity-collection"],
+      "useWhen": ["Several people or organizations should remain individually recognizable."],
+      "avoidWhen": ["Only one identity exists.", "Space is too narrow for the full group."],
+      "neighbors": ["avatar", "avatar-group-compact"],
+      "fit": { "space": ["regular"], "content": ["rich"] }
+    },
+    {
+      "id": "avatar-group-compact",
+      "publicName": "Avatar Group Compact",
+      "family": "identity",
+      "intents": ["identity-collection"],
+      "useWhen": ["A constrained row or toolbar needs a compact summary of several identities."],
+      "avoidWhen": ["Individual identities and labels must all remain visible.", "Only one identity exists."],
+      "neighbors": ["avatar", "avatar-group"],
+      "fit": { "scope": ["row", "section"], "space": ["compact"], "content": ["rich"] }
+    },
+    {
+      "id": "badge",
+      "publicName": "Badge",
+      "family": "data-display",
+      "intents": ["classification"],
+      "useWhen": ["Showing compact, non-interactive category, type, count, or metadata."],
+      "avoidWhen": ["Communicating operational state.", "Representing a removable selection.", "Showing a page-level message."],
+      "neighbors": ["status-badge", "tag", "banner"]
+    },
+    {
+      "id": "banner",
+      "publicName": "Banner",
+      "family": "feedback",
+      "intents": ["page-message"],
+      "useWhen": ["Persistent information applies to most or all of a page."],
+      "avoidWhen": ["Feedback is local to a field or section.", "The message is a transient confirmation.", "The message needs an interruptive decision."],
+      "neighbors": ["alert", "toast", "modal"],
+      "fit": { "scope": ["page", "global"], "content": ["plain", "rich"] }
+    },
+    {
+      "id": "data-table",
+      "publicName": "Data Table",
+      "family": "data-display",
+      "intents": ["tabular-data"],
+      "useWhen": ["Users must compare repeated records across shared columns.", "Sorting, selection, row actions, or bulk actions follow a clear reading model."],
+      "avoidWhen": ["Items have unrelated schemas.", "The content is better scanned as a simple list.", "The mobile transformation has not been planned."],
+      "neighbors": ["divider", "pagination"],
+      "fit": { "scope": ["section", "page"], "space": ["regular"], "content": ["tabular"] }
+    },
+    {
+      "id": "divider",
+      "publicName": "Divider",
+      "family": "data-display",
+      "intents": ["separate"],
+      "useWhen": ["A subtle boundary clarifies grouping after spacing alone has been considered."],
+      "avoidWhen": ["A larger gap or heading already expresses the relationship.", "Repeated dividers create visual noise."],
+      "neighbors": []
+    },
+    {
+      "id": "kbd",
+      "publicName": "Kbd",
+      "family": "data-display",
+      "intents": ["keyboard-hint"],
+      "useWhen": ["Displaying a real keyboard key or shortcut."],
+      "avoidWhen": ["Displaying an ordinary label, status, or decorative glyph."],
+      "neighbors": ["tooltip"]
+    },
+    {
+      "id": "progress-bar",
+      "publicName": "Progress Bar",
+      "family": "progress",
+      "intents": ["progress", "bounded-comparison"],
+      "useWhen": ["Showing determinate completion or a value against a known linear maximum.", "Horizontal space supports a labeled comparison."],
+      "avoidWhen": ["The value is indeterminate.", "A compact radial footprint is required.", "The value is merely decorative."],
+      "neighbors": ["progress-circle"],
+      "fit": { "scope": ["row", "section", "page"], "space": ["regular"], "content": ["plain"] }
+    },
+    {
+      "id": "progress-circle",
+      "publicName": "Progress Circle",
+      "family": "progress",
+      "intents": ["progress"],
+      "useWhen": ["Determinate progress needs a compact radial footprint or centered value."],
+      "avoidWhen": ["Precise comparison across several rows matters.", "A horizontal bar would communicate scale more clearly."],
+      "neighbors": ["progress-bar"],
+      "fit": { "scope": ["row", "section"], "space": ["compact"], "content": ["plain"] }
+    },
+    {
+      "id": "rating",
+      "publicName": "Rating",
+      "family": "data-display",
+      "intents": ["rating"],
+      "useWhen": ["Showing or collecting an ordered rating on a familiar fixed scale."],
+      "avoidWhen": ["The value is status, progress, or an arbitrary score without a familiar scale."],
+      "neighbors": ["progress-bar"]
+    },
+    {
+      "id": "status-badge",
+      "publicName": "Status Badge",
+      "family": "data-display",
+      "intents": ["status"],
+      "useWhen": ["Showing operational, lifecycle, validation, or process state."],
+      "avoidWhen": ["The value is merely a category.", "The item is removable or selected."],
+      "neighbors": ["badge", "tag"]
+    },
+    {
+      "id": "tag",
+      "publicName": "Tag",
+      "family": "data-display",
+      "intents": ["entity-token", "removable-selection"],
+      "useWhen": ["Representing a selected, removable, or manipulable entity or filter token."],
+      "avoidWhen": ["Showing static classification or operational status."],
+      "neighbors": ["badge", "status-badge"]
+    },
+    {
+      "id": "alert",
+      "publicName": "Alert",
+      "family": "feedback",
+      "intents": ["inline-feedback"],
+      "useWhen": ["Feedback belongs persistently within the affected flow or section.", "The user may need to act on the message in context."],
+      "avoidWhen": ["The message applies to the whole page.", "The message is a brief confirmation after an action."],
+      "neighbors": ["banner", "toast", "notification"],
+      "fit": { "scope": ["form", "section"], "content": ["plain", "rich"] }
+    },
+    {
+      "id": "notification",
+      "publicName": "Notification",
+      "family": "feedback",
+      "intents": ["actionable-feedback"],
+      "useWhen": ["A richer message includes source, time, description, or actions and may persist in a notification center."],
+      "avoidWhen": ["A short transient confirmation is enough.", "The message must block progress."],
+      "neighbors": ["toast", "alert", "modal"],
+      "fit": { "scope": ["global", "page"], "content": ["rich"] }
+    },
+    {
+      "id": "toast",
+      "publicName": "Toast",
+      "family": "feedback",
+      "intents": ["transient-feedback"],
+      "useWhen": ["Confirming a completed, non-blocking action without moving focus."],
+      "avoidWhen": ["The information must remain available.", "The user must act before continuing.", "The error needs field-level correction."],
+      "neighbors": ["alert", "notification", "modal"],
+      "fit": { "apply": ["immediate"], "scope": ["global"], "content": ["plain"] }
+    },
+    {
+      "id": "tooltip",
+      "publicName": "Tooltip",
+      "family": "feedback",
+      "intents": ["contextual-help"],
+      "useWhen": ["Providing a short accessible label or clarification for a focused or hovered control."],
+      "avoidWhen": ["The information is required to complete the task.", "The content is interactive or long.", "The trigger is not focusable."],
+      "neighbors": ["popover", "hint"],
+      "fit": { "scope": ["row", "section", "page"], "space": ["compact"], "content": ["plain"] }
+    },
+    {
+      "id": "checkbox",
+      "publicName": "Checkbox",
+      "family": "selection",
+      "intents": ["multi-select", "submitted-binary"],
+      "useWhen": ["Selecting zero, one, or many independent options.", "A binary form value takes effect on submit."],
+      "avoidWhen": ["Exactly one choice is required from a group.", "A setting should apply immediately."],
+      "neighbors": ["radio", "switch"],
+      "fit": { "apply": ["submit"], "scope": ["form", "row", "section"], "space": ["compact", "regular"], "content": ["plain", "descriptive"], "optionCount": { "min": 1 } }
+    },
+    {
+      "id": "color-picker",
+      "publicName": "Color Picker",
+      "family": "input",
+      "intents": ["color-input"],
+      "useWhen": ["The user must choose or enter a color and needs visual color feedback."],
+      "avoidWhen": ["Only a few named theme choices exist; use visible choices instead.", "Color is decorative rather than user-controlled data."],
+      "neighbors": ["radio", "select"]
+    },
+    {
+      "id": "datepicker",
+      "publicName": "Datepicker",
+      "family": "input",
+      "intents": ["date-input"],
+      "useWhen": ["Choosing a date benefits from calendar context, range constraints, or nearby-date comparison."],
+      "avoidWhen": ["A known date is faster to type.", "Only month, year, or relative period selection is required."],
+      "neighbors": ["input", "select"]
+    },
+    {
+      "id": "digit-input",
+      "publicName": "Digit Input",
+      "family": "input",
+      "intents": ["fixed-digit-input"],
+      "useWhen": ["Entering a short fixed-length verification or access code one digit at a time."],
+      "avoidWhen": ["Entering arbitrary numbers, money, phone numbers, or long identifiers."],
+      "neighbors": ["input"]
+    },
+    {
+      "id": "file-upload",
+      "publicName": "File Upload",
+      "family": "input",
+      "intents": ["file-input"],
+      "useWhen": ["Selecting or dropping one or more files with type, size, progress, and error feedback."],
+      "avoidWhen": ["The task selects an existing remote asset.", "A simple URL input is required."],
+      "neighbors": ["input", "progress-bar"]
+    },
+    {
+      "id": "hint",
+      "publicName": "Hint",
+      "family": "forms",
+      "intents": ["field-help"],
+      "useWhen": ["Persistent concise guidance, constraints, or validation context belongs to a field."],
+      "avoidWhen": ["The information is optional hover help.", "The message is page-level feedback."],
+      "neighbors": ["tooltip", "alert", "label"]
+    },
+    {
+      "id": "input",
+      "publicName": "Input",
+      "family": "input",
+      "intents": ["text-input"],
+      "useWhen": ["Entering or editing one line of text, search, email, number, or similarly compact data."],
+      "avoidWhen": ["The value spans multiple lines.", "The value comes from a controlled option set.", "A specialized date, file, color, or code control exists."],
+      "neighbors": ["textarea", "select", "datepicker", "file-upload", "digit-input"]
+    },
+    {
+      "id": "label",
+      "publicName": "Label",
+      "family": "forms",
+      "intents": ["field-label"],
+      "useWhen": ["Giving a persistent accessible name to a form control or group."],
+      "avoidWhen": ["Using helper text as a substitute for a name.", "The text is a heading rather than a field label."],
+      "neighbors": ["hint"]
+    },
+    {
+      "id": "radio",
+      "publicName": "Radio",
+      "family": "selection",
+      "intents": ["single-select"],
+      "useWhen": ["Choosing exactly one option from a short list.", "Seeing all choices or comparing descriptions matters before submission."],
+      "avoidWhen": ["Choices apply immediately as a view or mode switch.", "Space cannot support visible choices.", "Multiple selections are allowed."],
+      "neighbors": ["select", "segmented-control", "checkbox"],
+      "fit": { "apply": ["submit"], "scope": ["form", "section"], "space": ["regular"], "content": ["plain", "descriptive"], "optionCount": { "min": 2, "max": 5 } }
+    },
+    {
+      "id": "select",
+      "publicName": "Select",
+      "family": "selection",
+      "intents": ["single-select", "filter"],
+      "useWhen": ["Choosing one value from a moderate predefined list.", "A compact toolbar or form cannot keep all options visible."],
+      "avoidWhen": ["A short list should remain visible for comparison.", "The list is long enough to require search.", "Several options may be selected."],
+      "neighbors": ["radio", "segmented-control", "command-menu"],
+      "fit": { "apply": ["submit", "immediate"], "scope": ["form", "section", "page"], "space": ["compact", "regular"], "content": ["plain"], "optionCount": { "min": 5, "max": 15 } }
+    },
+    {
+      "id": "slider",
+      "publicName": "Slider",
+      "family": "input",
+      "intents": ["bounded-numeric-input"],
+      "useWhen": ["Adjusting an approximate value within a known range with immediate visual feedback."],
+      "avoidWhen": ["Exact numeric entry is required.", "The range or current value is unknown.", "Only two states exist."],
+      "neighbors": ["input", "switch", "segmented-control"],
+      "fit": { "apply": ["immediate"], "scope": ["form", "section"], "space": ["regular"], "content": ["plain"] }
+    },
+    {
+      "id": "switch",
+      "publicName": "Switch",
+      "family": "selection",
+      "intents": ["binary-setting"],
+      "useWhen": ["Turning one persistent setting on or off with immediate effect."],
+      "avoidWhen": ["The value is submitted with a form.", "The user chooses among more than two options.", "The action is one-time rather than a setting."],
+      "neighbors": ["checkbox", "segmented-control"],
+      "fit": { "apply": ["immediate"], "scope": ["row", "section", "page"], "space": ["compact", "regular"], "content": ["plain"], "optionCount": { "min": 2, "max": 2 } }
+    },
+    {
+      "id": "textarea",
+      "publicName": "Textarea",
+      "family": "input",
+      "intents": ["long-text-input"],
+      "useWhen": ["Entering or editing content that may wrap across several lines."],
+      "avoidWhen": ["The expected answer is one short line.", "Structured choices can replace free-form text."],
+      "neighbors": ["input"]
+    },
+    {
+      "id": "accordion",
+      "publicName": "Accordion",
+      "family": "disclosure",
+      "intents": ["progressive-disclosure"],
+      "useWhen": ["Several related sections can be independently expanded to reduce initial complexity."],
+      "avoidWhen": ["All information is required simultaneously.", "The sections are peer views or navigation destinations."],
+      "neighbors": ["tab-menu-horizontal", "tab-menu-vertical", "popover"]
+    },
+    {
+      "id": "breadcrumb",
+      "publicName": "Breadcrumb",
+      "family": "navigation",
+      "intents": ["hierarchy-navigation"],
+      "useWhen": ["Showing the current location within a genuine multi-level hierarchy."],
+      "avoidWhen": ["The product has a flat information architecture.", "The sequence represents progress rather than location."],
+      "neighbors": ["horizontal-stepper", "tab-menu-horizontal"]
+    },
+    {
+      "id": "segmented-control",
+      "publicName": "Segmented Control",
+      "family": "selection",
+      "intents": ["single-select", "view-switch", "filter"],
+      "useWhen": ["Two to five closely related modes, formats, ranges, or filters apply immediately.", "Short labels can remain visible in one line."],
+      "avoidWhen": ["The choice belongs to a submitted form.", "Options need descriptions.", "The items are independent actions or separate information sections."],
+      "neighbors": ["radio", "select", "button-group", "tab-menu-horizontal"],
+      "fit": { "apply": ["immediate"], "scope": ["section", "page"], "space": ["compact", "regular"], "content": ["plain"], "optionCount": { "min": 2, "max": 5 } }
+    },
+    {
+      "id": "tab-menu-horizontal",
+      "publicName": "Tab Menu Horizontal",
+      "family": "navigation",
+      "intents": ["peer-navigation"],
+      "useWhen": ["Switching among a small number of equal-importance peer sections in the same context."],
+      "avoidWhen": ["The control only changes a view format or filter.", "Labels cannot fit without excessive truncation.", "The content levels have unequal importance."],
+      "neighbors": ["tab-menu-vertical", "segmented-control", "breadcrumb"],
+      "fit": { "apply": ["navigation", "immediate"], "scope": ["section", "page"], "space": ["regular"], "content": ["plain"], "optionCount": { "min": 2, "max": 7 } }
+    },
+    {
+      "id": "tab-menu-vertical",
+      "publicName": "Tab Menu Vertical",
+      "family": "navigation",
+      "intents": ["peer-navigation"],
+      "useWhen": ["Peer sections need longer labels, counts, icons, or a persistent vertical rail."],
+      "avoidWhen": ["Horizontal space is scarce.", "The hierarchy is nested navigation rather than peer sections."],
+      "neighbors": ["tab-menu-horizontal", "accordion"],
+      "fit": { "apply": ["navigation", "immediate"], "scope": ["page", "section"], "space": ["regular"], "content": ["plain", "rich"], "optionCount": { "min": 2 } }
+    },
+    {
+      "id": "dot-stepper",
+      "publicName": "Dot Stepper",
+      "family": "navigation",
+      "intents": ["step-progress"],
+      "useWhen": ["Compact progress through a short sequence matters more than step labels."],
+      "avoidWhen": ["Users need step names, status details, or non-linear navigation."],
+      "neighbors": ["horizontal-stepper", "vertical-stepper"],
+      "fit": { "scope": ["section", "page"], "space": ["compact"], "content": ["plain"], "optionCount": { "min": 2, "max": 7 } }
+    },
+    {
+      "id": "horizontal-stepper",
+      "publicName": "Horizontal Stepper",
+      "family": "navigation",
+      "intents": ["step-progress"],
+      "useWhen": ["A short ordered process needs visible step labels across a wide layout."],
+      "avoidWhen": ["Labels are long, steps are numerous, or narrow layouts dominate.", "The sequence is hierarchical location."],
+      "neighbors": ["dot-stepper", "vertical-stepper", "breadcrumb"],
+      "fit": { "scope": ["page", "form"], "space": ["regular"], "content": ["plain"], "optionCount": { "min": 2, "max": 5 } }
+    },
+    {
+      "id": "pagination",
+      "publicName": "Pagination",
+      "family": "navigation",
+      "intents": ["collection-navigation"],
+      "useWhen": ["A long collection is split into stable pages and users may jump or move sequentially."],
+      "avoidWhen": ["Continuous loading or a small complete collection is more appropriate.", "The sequence represents workflow steps."],
+      "neighbors": ["data-table"]
+    },
+    {
+      "id": "vertical-stepper",
+      "publicName": "Vertical Stepper",
+      "family": "navigation",
+      "intents": ["step-progress"],
+      "useWhen": ["A longer ordered process needs labels, descriptions, status, or nested content."],
+      "avoidWhen": ["Only compact progress is required.", "The items are independent sections."],
+      "neighbors": ["horizontal-stepper", "dot-stepper", "accordion"],
+      "fit": { "scope": ["page", "form"], "space": ["regular"], "content": ["descriptive", "rich"], "optionCount": { "min": 2 } }
+    },
+    {
+      "id": "command-menu",
+      "publicName": "Command Menu",
+      "family": "overlays",
+      "intents": ["command-search", "searchable-select"],
+      "useWhen": ["Searching and invoking commands or destinations across a large, grouped set.", "Keyboard-first discovery is valuable."],
+      "avoidWhen": ["A short value list fits a select or radio group.", "The content is explanatory rather than actionable."],
+      "neighbors": ["dropdown", "select", "modal"],
+      "fit": { "apply": ["immediate", "navigation"], "scope": ["global", "page"], "space": ["regular"], "content": ["searchable", "grouped"], "optionCount": { "min": 10 } }
+    },
+    {
+      "id": "drawer",
+      "publicName": "Drawer",
+      "family": "overlays",
+      "intents": ["secondary-workflow"],
+      "useWhen": ["A substantial secondary workflow or detail view should preserve page context.", "Mobile navigation or filters need a temporary side surface."],
+      "avoidWhen": ["A short bounded decision fits a modal.", "Only a few actions or a small explanation are needed."],
+      "neighbors": ["modal", "popover", "dropdown"],
+      "fit": { "scope": ["page", "global"], "space": ["regular"], "content": ["rich"] }
+    },
+    {
+      "id": "dropdown",
+      "publicName": "Dropdown",
+      "family": "overlays",
+      "intents": ["action-menu"],
+      "useWhen": ["A trigger reveals a compact list of immediate actions.", "Overflow actions belong to a row, card, toolbar, or page header."],
+      "avoidWhen": ["The user is choosing a form value.", "The overlay contains substantial explanatory or interactive content.", "One action should remain directly visible."],
+      "neighbors": ["select", "popover", "command-menu", "button-group"],
+      "fit": { "apply": ["immediate"], "scope": ["row", "section", "page"], "space": ["compact", "regular"], "content": ["plain", "grouped"], "optionCount": { "min": 2 } }
+    },
+    {
+      "id": "modal",
+      "publicName": "Modal",
+      "family": "overlays",
+      "intents": ["blocking-decision", "bounded-task"],
+      "useWhen": ["A focused decision or bounded task must be completed or dismissed before returning.", "A destructive or consequential action needs confirmation and context."],
+      "avoidWhen": ["The task can remain inline.", "The workflow is long or benefits from page context.", "The content is merely informative."],
+      "neighbors": ["drawer", "popover", "alert"],
+      "fit": { "apply": ["submit"], "scope": ["page", "global"], "space": ["regular"], "content": ["plain", "descriptive", "rich"], "risk": ["normal", "destructive"] }
+    },
+    {
+      "id": "popover",
+      "publicName": "Popover",
+      "family": "overlays",
+      "intents": ["contextual-overlay"],
+      "useWhen": ["Compact contextual information or a small interactive control belongs near its trigger."],
+      "avoidWhen": ["The content is only a short label.", "The content is a menu of immediate actions.", "Focus must be trapped for a consequential decision."],
+      "neighbors": ["tooltip", "dropdown", "modal", "drawer"],
+      "fit": { "scope": ["row", "section", "page"], "space": ["compact", "regular"], "content": ["descriptive", "rich"] }
+    }
+  ]
+}

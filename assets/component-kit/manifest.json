@@ -1,0 +1,166 @@
+{
+  "snapshot": "2026-07-29",
+  "framework": "React with TypeScript and Tailwind CSS v4",
+  "tokenFile": "tokens/globals.css",
+  "roots": {
+    "components": "react/components/ui",
+    "hooks": "react/hooks",
+    "utils": "react/utils"
+  },
+  "categories": {
+    "actions": [
+      "button",
+      "button-group",
+      "compact-button",
+      "fancy-button",
+      "link-button"
+    ],
+    "data-display": [
+      "avatar",
+      "avatar-group",
+      "avatar-group-compact",
+      "badge",
+      "banner",
+      "divider",
+      "file-format-icon",
+      "kbd",
+      "progress-bar",
+      "progress-circle",
+      "status-badge",
+      "table",
+      "tag"
+    ],
+    "feedback": [
+      "alert",
+      "notification",
+      "notification-provider",
+      "toast",
+      "toast-alert",
+      "tooltip"
+    ],
+    "forms": [
+      "checkbox",
+      "color-picker",
+      "datepicker",
+      "digit-input",
+      "file-upload",
+      "hint",
+      "input",
+      "label",
+      "radio",
+      "select",
+      "slider",
+      "switch",
+      "textarea"
+    ],
+    "navigation": [
+      "accordion",
+      "breadcrumb",
+      "dot-stepper",
+      "horizontal-stepper",
+      "pagination",
+      "segmented-control",
+      "tab-menu-horizontal",
+      "tab-menu-vertical",
+      "vertical-stepper"
+    ],
+    "overlays": [
+      "command-menu",
+      "drawer",
+      "dropdown",
+      "modal",
+      "popover"
+    ],
+    "support": [
+      "avatar-empty-icons",
+      "svg-rating-icons"
+    ]
+  },
+  "publicCatalog": {
+    "actions": [
+      "button",
+      "button-group",
+      "compact-button",
+      "fancy-button",
+      "link-button"
+    ],
+    "displaying-data": [
+      "avatar",
+      "avatar-group",
+      "avatar-group-compact",
+      "badge",
+      "banner",
+      "data-table",
+      "divider",
+      "kbd",
+      "progress-bar",
+      "progress-circle",
+      "rating",
+      "status-badge",
+      "tag"
+    ],
+    "feedback": [
+      "alert",
+      "notification",
+      "toast",
+      "tooltip"
+    ],
+    "form": [
+      "checkbox",
+      "color-picker",
+      "datepicker",
+      "digit-input",
+      "file-upload",
+      "hint",
+      "input",
+      "label",
+      "radio",
+      "select",
+      "slider",
+      "switch",
+      "textarea"
+    ],
+    "layout": [
+      "accordion",
+      "breadcrumb",
+      "segmented-control",
+      "tab-menu-horizontal",
+      "tab-menu-vertical"
+    ],
+    "navigation": [
+      "dot-stepper",
+      "horizontal-stepper",
+      "pagination",
+      "vertical-stepper"
+    ],
+    "overlays": [
+      "command-menu",
+      "drawer",
+      "dropdown",
+      "modal",
+      "popover"
+    ]
+  },
+  "aliases": {
+    "data-table": "table",
+    "rating": "svg-rating-icons"
+  },
+  "hooks": [
+    "use-notification",
+    "use-tab-observer"
+  ],
+  "utils": [
+    "cn",
+    "polymorphic",
+    "recursive-clone-children",
+    "tv"
+  ],
+  "integrationRules": [
+    "Treat source files and globals.css as the visual contract.",
+    "Exactness applies to these assets, not newly composed page shells, charts, or templates.",
+    "Copy local dependencies recursively.",
+    "Adapt import aliases and framework boundaries only.",
+    "Preserve variants, state selectors, measurements, typography classes, icon sizing, and transition classes.",
+    "Visually verify normal, hover, focus-visible, active, disabled, loading, selected, open, error, and destructive states that apply."
+  ]
+}

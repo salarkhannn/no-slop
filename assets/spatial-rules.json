@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "fallbackScalePx": [0, 2, 4, 6, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96],
+  "relationshipRoles": [
+    {
+      "id": "cluster",
+      "order": 1,
+      "examples": ["icon-label", "status-text", "value-unit"]
+    },
+    {
+      "id": "item",
+      "order": 2,
+      "examples": ["title-description", "label-control", "row-metadata"]
+    },
+    {
+      "id": "group",
+      "order": 3,
+      "examples": ["form-section", "toolbar", "surface-content"]
+    },
+    {
+      "id": "section",
+      "order": 4,
+      "examples": ["summary-details", "filters-results", "page-sections"]
+    },
+    {
+      "id": "structural",
+      "order": 5,
+      "examples": ["shell-content", "primary-supporting-pane", "major-page-region"]
+    }
+  ],
+  "layoutModels": [
+    {
+      "id": "contained",
+      "useWhen": ["content has a natural readable or scannable maximum"]
+    },
+    {
+      "id": "fluid",
+      "useWhen": ["additional horizontal space improves the task"]
+    },
+    {
+      "id": "mixed-rail",
+      "useWhen": ["page regions have different natural widths"]
+    },
+    {
+      "id": "edge-to-edge",
+      "useWhen": ["the available screen is the working material"]
+    }
+  ],
+  "ownership": {
+    "componentInternal": "component",
+    "siblingDistance": "parent-layout",
+    "surfaceInset": "surface",
+    "pageInset": "shell-or-page-layout",
+    "breakout": "composition-seam"
+  },
+  "audit": {
+    "rawLiteralUniqueWarning": 8,
+    "macroInsetOwnerWarning": 3,
+    "pageSelectorTerms": [
+      "app",
+      "container",
+      "content",
+      "dashboard",
+      "layout",
+      "main",
+      "page",
+      "shell",
+      "workspace"
+    ],
+    "wideContentSelectorTerms": [
+      "canvas",
+      "chart",
+      "dashboard",
+      "grid",
+      "ledger",
+      "map",
+      "table",
+      "timeline",
+      "workspace"
+    ],
+    "ignoredDirectories": [
+      ".git",
+      ".next",
+      ".nuxt",
+      ".output",
+      ".svelte-kit",
+      "build",
+      "coverage",
+      "dist",
+      "node_modules",
+      "public",
+      "vendor"
+    ],
+    "protectedPathSegments": [
+      "canonical",
+      "component-kit",
+      "generated"
+    ]
+  }
+}
