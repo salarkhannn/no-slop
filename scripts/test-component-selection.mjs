@@ -89,7 +89,7 @@ assert.equal(
   'component ids must be unique',
 );
 
-const temporaryDir = fs.mkdtempSync(path.join(os.tmpdir(), 'craft-ui-selection-'));
+const temporaryDir = fs.mkdtempSync(path.join(os.tmpdir(), 'no-slop-selection-'));
 const reversedMetadataPath = path.join(temporaryDir, 'component-selection-reversed.json');
 fs.writeFileSync(
   reversedMetadataPath,

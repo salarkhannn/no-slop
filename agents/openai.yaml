@@ -1,4 +1,4 @@
 interface:
-  display_name: "Craft UI"
+  display_name: "No Slop"
   short_description: "Build distinctive, high-craft web interfaces"
-  default_prompt: "Use $craft-ui to design or refine this interface with product-specific composition, content-driven page geometry, exact components, disciplined spacing, and purposeful motion."
+  default_prompt: "Use $no-slop to design or refine this interface with product-specific composition, content-driven page geometry, exact components, disciplined spacing, and purposeful motion."

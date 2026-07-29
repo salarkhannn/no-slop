@@ -1,9 +1,9 @@
 ---
-name: craft-ui
+name: no-slop
 description: Design, build, refine, or review distinctive web interfaces with product-specific composition, content-driven page geometry, deliberate semantic component and variant selection, disciplined spacing ownership, hierarchy, responsive behavior, accessible interaction, exact canonical components, and purposeful motion. Use for dashboards, admin tools, SaaS and data-heavy product UI, business pages, marketing sites, component work, visual QA, generic or AI-patterned UI remediation, animation naming or discovery, motion audits, and implementation reviews in an existing or new frontend codebase.
 ---
 
-# Craft UI
+# No Slop
 
 Build interfaces that are calm, legible, coherent, and exact. Treat layout, components,
 interaction, and motion as one system, but solve them in that order.

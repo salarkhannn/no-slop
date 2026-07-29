@@ -1,10 +1,8 @@
 # No Slop
 
-`craft-ui` is an agent skill for designing, building, refining, and reviewing web
+`no-slop` is an agent skill for designing, building, refining, and reviewing web
 interfaces. It gives coding agents a structured approach to composition, component
 selection, spacing, responsive behavior, accessibility, and motion.
-
-The repository name is `no-slop`; the installed skill name is `craft-ui`.
 
 ## Install
 
@@ -67,7 +65,7 @@ Manual install:
 mkdir -p .claude/skills
 git clone --depth 1 \
   https://github.com/salarkhannn/no-slop.git \
-  .claude/skills/craft-ui
+  .claude/skills/no-slop
 ```
 
 ### Personal install
@@ -82,12 +80,12 @@ Manual install:
 mkdir -p ~/.claude/skills
 git clone --depth 1 \
   https://github.com/salarkhannn/no-slop.git \
-  ~/.claude/skills/craft-ui
+  ~/.claude/skills/no-slop
 ```
 
 Start a new Claude Code session if the `skills` directory did not exist when the
-current session started. Run `/skills` to confirm that `craft-ui` is available,
-then invoke it with `/craft-ui` or mention the skill in your prompt.
+current session started. Run `/skills` to confirm that `no-slop` is available,
+then invoke it with `/no-slop` or mention the skill in your prompt.
 
 ## [OpenAI Codex](https://developers.openai.com/codex/skills/)
 
@@ -106,7 +104,7 @@ Manual install:
 mkdir -p .agents/skills
 git clone --depth 1 \
   https://github.com/salarkhannn/no-slop.git \
-  .agents/skills/craft-ui
+  .agents/skills/no-slop
 ```
 
 ### Personal install
@@ -121,10 +119,10 @@ Manual install:
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 git clone --depth 1 \
   https://github.com/salarkhannn/no-slop.git \
-  "${CODEX_HOME:-$HOME/.codex}/skills/craft-ui"
+  "${CODEX_HOME:-$HOME/.codex}/skills/no-slop"
 ```
 
-Restart Codex after a personal install. Invoke the skill by naming `$craft-ui` in
+Restart Codex after a personal install. Invoke the skill by naming `$no-slop` in
 your request.
 
 ## [OpenCode](https://opencode.ai/docs/skills/)
@@ -145,7 +143,7 @@ Manual install:
 mkdir -p .opencode/skills
 git clone --depth 1 \
   https://github.com/salarkhannn/no-slop.git \
-  .opencode/skills/craft-ui
+  .opencode/skills/no-slop
 ```
 
 ### Personal install
@@ -160,10 +158,10 @@ Manual install:
 mkdir -p ~/.config/opencode/skills
 git clone --depth 1 \
   https://github.com/salarkhannn/no-slop.git \
-  ~/.config/opencode/skills/craft-ui
+  ~/.config/opencode/skills/no-slop
 ```
 
-Use `/craft-ui` in OpenCode V2 or ask the agent to use the `craft-ui` skill.
+Use `/no-slop` in OpenCode V2 or ask the agent to use the `no-slop` skill.
 
 ## Other supported harnesses
 
@@ -171,14 +169,14 @@ The skills CLI knows the install paths for these harnesses:
 
 | Harness | `--agent` value | Project path | Personal path |
 | --- | --- | --- | --- |
-| Cursor | `cursor` | `.agents/skills/craft-ui` | `~/.cursor/skills/craft-ui` |
-| Gemini CLI | `gemini-cli` | `.agents/skills/craft-ui` | `~/.gemini/skills/craft-ui` |
-| GitHub Copilot | `github-copilot` | `.agents/skills/craft-ui` | `~/.copilot/skills/craft-ui` |
-| Cline | `cline` | `.agents/skills/craft-ui` | `~/.agents/skills/craft-ui` |
-| Roo Code | `roo` | `.roo/skills/craft-ui` | `~/.roo/skills/craft-ui` |
-| Windsurf | `windsurf` | `.windsurf/skills/craft-ui` | `~/.codeium/windsurf/skills/craft-ui` |
-| Kiro CLI | `kiro-cli` | `.kiro/skills/craft-ui` | `~/.kiro/skills/craft-ui` |
-| OpenHands | `openhands` | `.openhands/skills/craft-ui` | `~/.openhands/skills/craft-ui` |
+| Cursor | `cursor` | `.agents/skills/no-slop` | `~/.cursor/skills/no-slop` |
+| Gemini CLI | `gemini-cli` | `.agents/skills/no-slop` | `~/.gemini/skills/no-slop` |
+| GitHub Copilot | `github-copilot` | `.agents/skills/no-slop` | `~/.copilot/skills/no-slop` |
+| Cline | `cline` | `.agents/skills/no-slop` | `~/.agents/skills/no-slop` |
+| Roo Code | `roo` | `.roo/skills/no-slop` | `~/.roo/skills/no-slop` |
+| Windsurf | `windsurf` | `.windsurf/skills/no-slop` | `~/.codeium/windsurf/skills/no-slop` |
+| Kiro CLI | `kiro-cli` | `.kiro/skills/no-slop` | `~/.kiro/skills/no-slop` |
+| OpenHands | `openhands` | `.openhands/skills/no-slop` | `~/.openhands/skills/no-slop` |
 
 Replace `AGENT_NAME` in this command with a value from the table:
 
@@ -195,16 +193,16 @@ The skill triggers on interface design, implementation, refinement, and review
 tasks. You can also invoke it by name:
 
 ```text
-Use $craft-ui to design a responsive analytics dashboard for this app.
+Use $no-slop to design a responsive analytics dashboard for this app.
 ```
 
 ```text
-Use the craft-ui skill to audit this page's layout, hierarchy, spacing, and
+Use the no-slop skill to audit this page's layout, hierarchy, spacing, and
 accessibility. Keep the review read-only.
 ```
 
 ```text
-Use $craft-ui to match the bundled canonical React components exactly.
+Use $no-slop to match the bundled canonical React components exactly.
 ```
 
 The package includes:
@@ -221,13 +219,13 @@ Agents load the supporting files only when the task needs them.
 If you installed with the skills CLI:
 
 ```bash
-npx skills update craft-ui
+npx skills update no-slop
 ```
 
 If you installed with `git clone`, pull from inside the installed directory:
 
 ```bash
-git -C /path/to/craft-ui pull --ff-only
+git -C /path/to/no-slop pull --ff-only
 ```
 
 ## Security
