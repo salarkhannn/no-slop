@@ -1,341 +1,355 @@
 ---
 name: no-slop
-description: Design, build, refine, or review distinctive web interfaces with product-specific composition, content-driven page geometry, deliberate semantic component and variant selection, disciplined spacing ownership, hierarchy, responsive behavior, accessible interaction, exact canonical components, and purposeful motion. Use for dashboards, admin tools, SaaS and data-heavy product UI, business pages, marketing sites, component work, visual QA, generic or AI-patterned UI remediation, animation naming or discovery, motion audits, and implementation reviews in an existing or new frontend codebase.
+description: Design, build, refine, or review distinctive web interfaces with product-specific visual direction, content-shaped composition, deliberate component and variant selection, compound interaction patterns, disciplined spacing, responsive behavior, accessible interaction, exact canonical components, and purposeful motion. Use for dashboards, admin tools, SaaS and data-heavy product UI, business pages, marketing sites, component work, visual QA, generic AI-slop remediation, anti-slop pattern remediation, animation discovery, motion audits, and implementation reviews in existing or new frontend codebases.
 ---
 
 # No Slop
 
-Build interfaces that are calm, legible, coherent, and exact. Treat layout, components,
-interaction, and motion as one system, but solve them in that order.
+Create interfaces that are useful, visually authored, and credible. Correctness is required,
+but correctness alone is not design quality. Solve product structure, visual direction,
+composition, components, responsive behavior, and states before motion polish.
 
-## Core mandate
+## Non-negotiable mandate
 
-1. Make the static interface excellent before adding motion.
-2. Preserve the host codebase's framework, architecture, package manager, and conventions.
-3. Use the bundled canonical component implementation when exact matching is requested.
-4. Choose components by interaction semantics and variants by hierarchy; never stop at the
-   first plausible primitive or its default variant.
-5. Select contained, fluid, mixed-rail, or edge-to-edge geometry from content needs; never
-   apply a centered max-width wrapper or generous page inset by reflex.
-6. Give every visible distance one owner and keep spacing, type, color, radius, elevation,
-   icon, and motion decisions tokenized.
-7. Prefer hierarchy and alignment over decoration.
-8. Make every interaction keyboard-operable, focus-visible, responsive, and reduced-motion safe.
-9. Implement only when the user asks to build or change. Keep audits and reviews read-only.
-10. Do not ship statistical-average composition. Every page needs a product-specific thesis.
+1. Preserve the host framework, architecture, package manager, data flow, and user-owned
+   code. Do not automatically preserve its visual style.
+2. Audit the host visual language before extending it. Question patterns that appear
+   generic, AI-generated, or generated in reaction to AI slop. Three related signals or
+   five cross-category signals require an explicit keep/revise/reject decision.
+3. Follow explicit user references and requested character above inherited visual defaults,
+   while preserving accessibility and functional correctness.
+4. Write a visual-direction brief before a new page or material redesign.
+5. Compare three structurally different composition concepts. Rearranging the same
+   title/cards/table skeleton does not count.
+6. Select every visible interaction by semantics, then select its variant by hierarchy,
+   frequency, risk, density, and context. A default variant is a choice, not an absence of
+   choice.
+7. Use compound interaction patterns when the task requires them. Do not reduce rich
+   workflows to a title, filters, table, and buttons by habit.
+8. Preserve local symmetry among true peers. Use asymmetry to express hierarchy, not as
+   unexplained drift.
+9. Allow quiet, dense, tactile, editorial, playful, media-led, layered, or technical visual
+   systems when product evidence supports them. Do not make quiet minimalism the universal
+   fallback.
+10. Differentiate routes by their primary object and decision. A shared shell must not make
+    every page the same header/control-band/table template.
+11. Never present a self-awarded score, fabricated metric, invented status, or mock audit as
+    proof of quality. Validate with rendered and behavioral evidence.
+12. Run static audits as lead generators, confirm findings in rendered context, and test the
+    design against unrelated scenarios before calling the method general.
+13. Treat the inherited typeface and weight distribution as visual decisions. Preserve
+    them only when their character, metrics, available weights, and product fit survive a
+    representative rendered comparison.
+14. Make every visible container earn its boundary. Nest surfaces only when the child adds
+    a distinct interaction plane, grouping level, clipping rule, scroll region, contrast,
+    or elevation; otherwise flatten the boundary and express structure with alignment and
+    spacing.
 
 ## Resolve instruction precedence
 
-Use this order when requirements conflict:
+When requirements conflict:
 
 1. Explicit user requirements and supplied references
-2. Accessibility, semantics, and functional correctness
-3. Explicit exact-component contract
-4. Existing repository architecture and design system
-5. Product identity and content needs
-6. Platform conventions
-7. Defaults in this skill
+2. Accessibility, semantics, safety, and functional correctness
+3. Exact component or brand contract explicitly requested
+4. Genuine established brand decisions supported by repeated evidence
+5. Product, task, content, and data needs
+6. Existing visual defaults
+7. This skill's fallback guidance
 
-State any meaningful conflict. Do not silently redesign an exact component or silently
-replace an established repository primitive.
+Repository architecture has high implementation precedence. Repository visual style does
+not. Record meaningful conflicts instead of silently inheriting or replacing them.
 
 ## Choose an operating mode
 
 | User intent | Mode | Action |
 | --- | --- | --- |
-| Create, implement, redesign, refine, fix | Build/refine | Inspect, plan, implement, verify |
-| Match the canonical component set exactly | Exact component | Copy the asset implementation, then adapt only integration seams |
-| Review layout, spacing, hierarchy, symmetry | Layout audit | Report evidence and fixes; do not edit |
-| Find places that could benefit from motion | Motion discovery | Return at most 5–7 ranked opportunities plus rejected candidates |
-| Improve motion across a codebase | Motion audit | Produce a prioritized audit and self-contained implementation plans |
-| Review a motion diff or implementation | Motion review | Apply the standards strictly; approval is earned |
-| “What is the animation called?” | Vocabulary | Name the effect, distinguish close alternatives, give prompt-ready wording |
+| Create, implement, redesign, refine, fix | Build/refine | Inspect, challenge, compose, implement, verify |
+| Match bundled components exactly | Exact component | Copy canonical source; adapt integration seams only |
+| Review layout, visual style, components, or UX | UI audit | Report evidence and corrections; do not edit |
+| Find useful motion opportunities | Motion discovery | Return 5–7 at most plus rejected candidates |
+| Improve motion across a codebase | Motion audit | Prioritized audit and executable plans |
+| Review a motion implementation | Motion review | Apply standards strictly |
+| Name an effect | Vocabulary | Name, distinguish, and provide prompt-ready wording |
 
-If a request spans modes, perform them in this order: layout audit or static refinement,
-component conformance, responsive/accessibility verification, motion, final review.
+For mixed requests, use this order: static audit/refinement, component conformance,
+responsive/accessibility, motion, final evidence review.
 
-## Start every codebase task with reconnaissance
+## Start with reconnaissance and visual challenge
 
 Inspect only what is needed to establish:
 
-- framework, renderer, routing, styling approach, and package manager;
-- existing tokens, primitives, component library, icons, fonts, and motion library;
-- page shell, breakpoints, density, and repeated layout patterns;
-- relevant tests, lint/build commands, and browser or screenshot tooling;
-- user-owned worktree changes that must be preserved.
+- framework, routing, styling, package manager, tokens, primitives, icons, fonts, and motion;
+- shell, page families, breakpoints, density, layout and interaction patterns;
+- tests, lint/build commands, browser or screenshot tooling, and user-owned changes;
+- repeated visual decisions and whether they are product-specific or generic defaults.
 
-Run `node scripts/scan-ui.mjs <repo>` for a quick read-only inventory when Node is
-available. Treat its findings as leads, not proof. Read `references/platform-adapters.md`
-before changing a non-React or non-utility-CSS codebase.
+Run `node scripts/scan-ui.mjs <repo>` when useful. For visual risk leads run:
 
-Do not introduce a second styling system or motion dependency merely because it is
-familiar. Reuse the host stack unless the requested result cannot be achieved cleanly.
+```bash
+node scripts/audit-ui.mjs <repo>
+node scripts/audit-component-use.mjs <repo>
+node scripts/audit-spacing.mjs <repo>
+```
 
-## Route to the minimum needed references
+Treat output as prompts for inspection, never as automatic defects.
 
-- Read `references/design-foundations.md` for tokens, typography, color, depth, icons,
-  density, and visual voice.
-- Read `references/layout-composition.md` for any page, section, dashboard, or layout audit.
-- Read `references/spatial-system.md` for any page or section composition, spacing or
-  density change, container or max-width decision, dashboard, table, chart, page shell,
-  breakpoint, or spatial audit. Use `scripts/audit-spacing.mjs` as a source-level lead
-  generator and `assets/spatial-rules.json` for the fallback scale and decision vocabulary.
-- Read `references/distinctiveness.md` for every page, section, dashboard, marketing
-  surface, redesign, or visual critique. Skip it only for isolated component work and
-  pure animation vocabulary.
-- Read `references/component-contracts.md` before adding, changing, or matching components.
-- Read `references/component-selection.md` whenever choosing a component or variant. Use
-  `scripts/recommend-component.mjs` for ambiguous choices and
-  `scripts/extract-component-variants.mjs` before relying on a default variant.
-- Read `references/component-catalog.md` when selecting canonical components, building a
-  component gallery, or translating a public component name to its source asset.
-- Read `references/product-patterns.md` for dashboards, admin, SaaS, tables, settings,
-  workflows, and business applications.
-- Read `references/marketing-patterns.md` for landing, company, product, pricing, and
-  conversion pages.
-- Read `references/responsive-accessibility.md` for responsive behavior, forms, overlays,
-  keyboard interaction, and final verification.
-- Read `references/motion-language.md` to identify or describe an effect.
-- In Vocabulary mode, also read `references/motion-standards.md` only when the user asks
-  for implementation values, physics, or accessibility behavior.
-- Read `references/motion-standards.md` before proposing, implementing, or reviewing motion.
-- Read `references/audit-playbook.md` for read-only audits and scoring.
-- Read `references/output-contracts.md` for plan, audit, review, and handoff formats.
+Create a host-style decision:
 
-Do not load all references by default.
+```text
+Preserve:
+Question:
+Reject:
+Reason:
+```
 
-## Apply the static quality gate
+Preserve real identity, established user expectations, and sound primitives. Question
+slop such as generic bento grids, floating mockups, glows, or interchangeable dashboards.
+Also question anti-slop clichés such as giant grotesk headlines, tiny uppercase mono
+eyebrows, off-white/black/cobalt palettes, measurement marks, ruled ledgers, sparse
+editorial split sections, enormous unused regions, and solid full-width CTA bands. Read
+`references/visual-direction.md`.
 
-Before motion, confirm:
+## Route to the minimum references
 
-- one dominant purpose and primary action per view;
-- a readable title → context → action → content hierarchy;
-- a content-based contained, fluid, mixed-rail, or edge-to-edge model for every major region;
-- a concrete reason for every page inset, maximum width, and breakout;
-- consistent container, grid, and alignment lines;
-- spacing that expresses relationship, has one owner, and uses shared tokens;
-- balanced visual mass without forced mirroring;
-- clear grouping, section boundaries, and scan paths;
-- restrained surfaces, borders, radii, shadows, and color roles;
-- the most semantically precise available component and a hierarchy-appropriate variant,
-  not merely the first plausible component or its default;
-- no card, pill, icon-tile, gradient, glass, or equal-grid monoculture;
-- credible data and content without fabricated proof, metrics, or live status;
-- at least three composition decisions specific to this product and task;
-- complete empty, loading, error, disabled, focus, selected, and destructive states;
-- sensible behavior at narrow, medium, wide, zoomed, and content-stress conditions.
+- Any page, redesign, or visual review: `visual-direction.md`,
+  `composition-grammar.md`, `layout-composition.md`, and `distinctiveness.md`.
+- Spacing, rails, density, containers: `spatial-system.md`.
+- Visual tokens and character: `design-foundations.md`.
+- Component choice: `component-selection.md`; use `recommend-component.mjs` and
+  `extract-component-variants.mjs`.
+- Canonical integration: `component-contracts.md` and `component-catalog.md`.
+- Rich task patterns: `compound-patterns.md`.
+- Peer geometry and visual balance: `symmetry-balance.md`.
+- Product applications: `product-patterns.md`.
+- Marketing and business pages: `marketing-patterns.md`.
+- Responsive behavior and accessibility: `responsive-accessibility.md`.
+- Motion naming: `motion-language.md`.
+- Motion implementation/review: `motion-standards.md`.
+- Audits: `audit-playbook.md`.
+- Deliverables: `output-contracts.md`.
+- Cross-domain regression cases: `evaluation.md`.
+- Non-React adaptation: `platform-adapters.md`.
 
-If any item fails, fix it before adding delight. Read `references/layout-composition.md`
-for exact checks.
+Do not load every reference by default.
 
-## Decide the spatial system before styling
+## Write the evidence and visual-direction briefs
 
-For a new page, major section, dashboard, or material layout change:
+For a new page or material redesign, record:
 
-1. Calculate the usable region after persistent navigation, panes, and safe areas.
-2. Complete the compact spatial brief in `references/spatial-system.md`.
-3. Classify each major region as prose, form, list, table, visualization, canvas, or mixed.
-4. Compare the leading macro model with at least one close alternative.
-5. Select contained, fluid, mixed-rail, or edge-to-edge by width payoff and failure risk.
-6. Define the page, reading, work, and full-bleed rails that are actually needed.
-7. Assign outer inset, surface padding, sibling gap, and exceptional offset ownership.
-8. Map relationship roles to host tokens; preserve exact component internals.
-9. Render narrow and extra-wide views. Inspect effective insets and useful width, not only
-   the CSS values.
+```text
+User and repeated task:
+Decision this view supports:
+Primary objects:
+Costly mistake:
+Content/data source and trust:
+Primary action:
+What can be deferred:
 
-Do not force unlike regions through one wrapper. A constrained title can share a page with
-a fluid ledger or chart. Generous whitespace, centered content, asymmetry, negative margins,
-and full-bleed regions are permitted only when their content or interaction benefit can be
-named.
+Product character:
+Topology and focal anchor:
+Density:
+Symmetry:
+Surface and depth, including containment tree:
+Typography, including typeface decision and weight budget:
+Color behavior:
+Media or illustration:
+Interaction richness:
+Distinctive motif:
+Reference traits to carry:
+Host patterns to preserve/question/reject:
+```
 
-## Select components before rendering them
+Do not use adjectives such as “clean,” “modern,” “premium,” or “minimal” as sufficient
+direction. Tie each choice to the audience, object, task, identity, content, or reference.
 
-Exactness does not guarantee appropriateness. Unless the user explicitly names a component,
-classify the need before opening component source:
+## Compare structural composition concepts
 
-1. Record intent, immediate versus submitted application, option or action count, content
-   complexity, scope, frequency, importance, reversibility, space, and responsive behavior.
-2. Retrieve the relevant family from `assets/component-selection.json`. Do not scan the
-   catalog top-to-bottom and accept the first match.
-3. For an ambiguous decision, compare the leading candidate with at least one close
-   alternative. Disqualify semantic or behavioral mismatches before judging appearance.
-4. Choose the component, then separately choose its variant.
-5. Inspect actual variant axes with
+Produce three terse concepts for the same evidence. Each must differ in at least four:
+
+- topology;
+- focal anchor and first scan;
+- navigation/work-surface relationship;
+- density and information grouping;
+- symmetry model;
+- surface/depth model;
+- media strategy;
+- compound interaction pattern;
+- narrow-screen transformation.
+
+Examples of different concepts are database canvas, split-pane inspector, grouped issue
+board, masonry knowledge space, narrative demo, or record workspace. “Cards above table”
+versus “table above cards” is not a structural difference.
+
+Reject two concepts with task- and content-based reasons. Choose one because it improves a
+decision or interaction, not because it looks less familiar. Read
+`references/composition-grammar.md`.
+
+## Select components and variants before hand-writing UI
+
+For every visible interactive need:
+
+1. Record intent, application, count, content, scope, frequency, importance, risk, space,
+   responsive behavior, and host availability.
+2. Prefer a sound repository-native primitive.
+3. If the host lacks one and the target is React-capable, prefer the bundled canonical
+   component over a hand-written substitute.
+4. Compare close candidates when semantics are ambiguous.
+5. Choose the component, then separately choose its variant.
+6. Inspect real variant axes with
    `node scripts/extract-component-variants.mjs <component...>`.
-6. Render the decision in context and run the selection review in
-   `references/component-selection.md`.
+7. Render the complete interaction and state matrix in context.
 
-Use `node scripts/recommend-component.mjs --list-intents` to discover supported intents.
-The recommender is a shortlist aid, not an automatic final decision. Keep the compact
-selection record internal unless the user asks for rationale.
+Use `node scripts/recommend-component.mjs --list-intents` to discover intents. The tool
+returns a shortlist, variant guidance, and conflicts; it does not make the final decision.
+
+For rare, principal marketing or milestone actions, Fancy Button must be considered and
+recorded as chosen or rejected. Do not use it repeatedly or in dense product UI. Navigation
+still uses a real link contract.
+
+Never hand-write a generic button, select, dropdown, tabs, dialog, status badge, or other
+covered primitive merely because it is faster. A visually sound host primitive takes
+precedence; otherwise use the canonical kit or document why it cannot satisfy the need.
 
 ## Use canonical components exactly
 
-The canonical React source lives in:
+Canonical React source lives in `assets/component-kit/`. Exactness covers semantics, DOM
+where behavior depends on it, geometry, type, color roles, borders, radii, shadows, icons,
+states, focus, variants, and transitions.
 
-```text
-assets/component-kit/
-├── manifest.json
-├── dependencies.json
-├── tokens/globals.css
-└── react/
-    ├── components/ui/
-    ├── hooks/
-    └── utils/
-```
+Workflow:
 
-“Exact” includes DOM structure, dimensions, padding, gaps, typography, color roles,
-radii, borders, shadows, icon size and placement, state styling, focus treatment,
-variants, and transition behavior. It does not mean preserving an incompatible import
-alias or framework wrapper.
+1. Map the public name through `component-catalog.md` and the manifest.
+2. Resolve files with `node scripts/component-deps.mjs <component...> --markdown`.
+3. Copy only required source, hooks, utilities, tokens, and external packages.
+4. Adapt imports, client directives, routing links, and host composition only.
+5. Preserve public props and variants unless the user requests an API change.
+6. Render every meaningful state and width.
+7. Disclose any necessary deviation and its visible consequence.
 
-Exactness applies only to bundled component and token assets. Page shells, charts,
-dashboard arrangements, marketing sections, and templates are newly composed unless a
-matching canonical asset is present. Never describe a new page composition as canonical.
+Do not imitate canonical components with ad hoc markup. For non-React hosts, port the full
+semantic and behavioral contract. A page layout is not canonical unless its source exists.
 
-For exact component work:
+## Compose rich product interfaces
 
-1. If the user did not name the component, complete the selection pass above.
-2. Locate the public component in `references/component-catalog.md`, then confirm its
-   source mapping in `assets/component-kit/manifest.json`.
-3. Run `node scripts/component-deps.mjs <component...> --markdown` to resolve the exact
-   local files and external packages, then copy that dependency set.
-4. Install only the external packages actually imported by the selected files.
-5. Install or merge `assets/component-kit/tokens/globals.css` without weakening existing
-   app-wide styles.
-6. Load Inter with the repository's font mechanism, preserving the canonical type metrics.
-7. Adapt path aliases, module directives, routing links, and host composition only.
-8. Preserve the public prop and variant contract unless the user requests an API change.
-9. Render every meaningful state and compare it at representative viewport widths.
-10. Record any necessary deviation with the reason and visible consequence.
+Choose topology from the object and task: canvas, database, board, timeline, document,
+gallery, masonry collection, split pane, record workspace, or justified hybrid.
 
-For React hosts and standalone React-capable demos, render the copied component source.
-Do not manually recreate its markup or CSS. A plain-HTML imitation is not exact, even when
-the default screenshot looks close. Bundle the canonical React source into a self-contained
-artifact when a single HTML file is required.
+Use compound patterns when they reduce task steps or preserve context:
 
-Component catalogs and showcase pages must use the 49 public component names from
-`references/component-catalog.md`. Keep helper assets internal. Render overlays, menus,
-selects, tooltips, notifications, and toasts with their real primitives and verify their
-open behavior; a static drawing of an overlay does not satisfy exactness.
+- tokenized filter builder;
+- command menu;
+- grouped or nested work list;
+- object peek/inspector;
+- record-property grid;
+- inline editing;
+- selection and bulk-action bar;
+- contextual menu;
+- board, gallery, or masonry collection;
+- split-pane list/detail;
+- media-led cards with real content.
 
-For Vue, Svelte, Solid, native CSS, or another stack, port the contract rather than the
-React syntax. Preserve semantics and rendered output. Read
-`references/platform-adapters.md`.
+A table requires a comparison, selection, sort/filter, action, and responsive model. A
+title plus table is not inherently a complete page. Across sibling routes, vary topology
+when their primary objects and decisions differ. Read `product-patterns.md` and
+`compound-patterns.md`.
 
-Never invent a “close enough” substitute when the requested canonical asset exists.
-If behavioral parity for focus, keyboard, portals, or collision handling cannot be
-verified, disclose the gap instead of claiming exactness.
+## Compose marketing pages from the argument
 
-## Compose pages deliberately
+Familiar patterns are allowed when evidence justifies them. A centered hero is not
+automatically slop; a centered hero with generic copy, two generic CTAs, a floating mockup,
+and fabricated proof is.
 
-Choose the page branch from the user's goal:
+- Organize claims around real product behavior and buyer objections.
+- Put legible product evidence or a real demonstration near major claims.
+- Do not display mock quality scores, audit panels, fake usage, status, customer logos,
+  testimonials, or performance metrics as proof.
+- Give the principal conversion action an explicit component and variant decision.
+- Consider expressive canonical variants for rare hero or final conversion actions.
+- Use media, illustration, diagrams, or product crops when they materially explain or
+  establish identity.
+- Let sections change topology as the argument changes.
 
-- Product UI: dense but calm, task-first, strong shell, explicit filters, trustworthy data,
-  clear selection and bulk actions. Read `references/product-patterns.md`.
-- Business/marketing: narrative rhythm, proof near claims, controlled section contrast,
-  conversion hierarchy, and real content shapes. Read `references/marketing-patterns.md`.
+Read `marketing-patterns.md`.
 
-Avoid statistical-average layouts: the default marketing sequence, the four-card KPI
-strip, the chart-plus-activity dashboard, nested rounded panels, icon tiles for every
-item, decorative live status, and identical spacing or treatment across unrelated
-regions. One familiar pattern is not a defect; an unjustified accumulation is. Use
-content priority to determine composition and run the workflow in
-`references/distinctiveness.md`.
+## Enforce symmetry and balance
 
-Do not use one centered max-width container as a universal composition. Constrain readable
-or focused regions, let width-hungry task regions use available space, and use mixed rails
-when the same page contains both. Calculate side insets from the remaining main region
-after navigation and panes rather than from the raw viewport.
+Peer components must share applicable geometry: height, padding, label baseline, icon
+placement, radius family, state treatment, and action alignment. Paired regions must share
+an explicit alignment contract. Repeated cards must expose the same metadata slots or
+declare intentional variation.
+
+Use asymmetry for hierarchy, narrative, or content shape. Never let it arise from accidental
+wrapping, arbitrary offsets, inconsistent variants, or different component internals.
+Check short, long, empty, and translated content. Read `symmetry-balance.md`.
 
 ## Add motion only when it earns its place
 
-Motion must provide feedback, preserve spatial continuity, reveal state, explain change,
-or occasionally add delight. Reject animation that merely announces that animation exists.
+Motion must provide feedback, continuity, state explanation, direct manipulation, or rare
+delight. Frequency governs intensity. Most UI transitions finish within 300 ms. Use exact
+properties, causal origins, interruption-safe behavior, and a reduced-motion equivalent.
+Never use motion to create interest in a structurally flat page.
 
-Frequency governs intensity:
+## Build/refine workflow
 
-- 100+ times per day: no animation or near-instant feedback.
-- Tens of times per day: subtle and fast.
-- Occasional: standard transition.
-- Rare or milestone: expressive motion may be appropriate.
+1. Establish purpose, user, task, objects, content source, and constraints.
+2. Inspect architecture, design system, representative routes, and rendered screens.
+3. Audit the host visual style; preserve, question, or reject repeated patterns.
+4. Compare the current typeface with at least one credible alternative when its intent or
+   fit is unclear. Render representative title, body, control, numeric, and stress text.
+5. Write evidence and visual-direction briefs, including a typeface decision, weight
+   budget, and containment tree.
+6. Compare three structurally different composition concepts and reject two.
+7. Choose topology, rails, spacing ownership, density, surface model, responsive
+   transformations, and symmetry contracts.
+8. Identify compound patterns that preserve context or reduce steps.
+9. Select a component and variant for every visible interaction.
+10. Implement largest regions first, then states and local polish.
+11. Render narrow, medium, and wide views with long, sparse, empty, loading, error, and
+    permission states.
+12. Run static audits and manually confirm candidates.
+13. Perform a containment pass: outline every visible surface, name each boundary's unique
+    role, and remove parent or child chrome when the roles duplicate.
+14. Perform typography, subtraction, and symmetry passes. In ordinary product regions,
+    regular-weight text should normally outnumber semibold/bold text.
+15. Add only justified motion.
+16. Verify semantics, keyboard, focus, contrast, zoom, overflow, and reduced motion.
+17. Run lint, type, unit, build, and relevant visual checks.
+18. Report evidence, commands, viewports, states, deviations, and risks.
 
-Default constraints:
+## Audit workflow
 
-- pointer-down feedback begins immediately;
-- most UI transitions complete within 300 ms;
-- use ease-out for entrances, ease-in-out for movement, and springs for gesture-driven
-  or interruptible motion;
-- menus and popovers originate from their trigger; dialogs originate from the viewport;
-- animate `transform` and `opacity` where possible;
-- never use `transition: all`, `scale(0)`, or default `ease-in` for ordinary UI;
-- preserve continuity when interrupted and inherit gesture velocity;
-- provide a gentler reduced-motion equivalent.
+Audits are read-only unless implementation is separately requested.
 
-Read `references/motion-standards.md` for values and `references/motion-language.md`
-for names.
+1. State scope, routes, states, viewports, and evidence limitations.
+2. Inspect source and rendered output.
+3. Challenge both ordinary slop and anti-slop accumulation.
+4. Audit topology, focal point, useful-space allocation, route differentiation, compound
+   interaction opportunities, component/variant choices, symmetry, states, and responsive
+   transformations.
+5. Run static lead generators and confirm each reported item.
+6. Report evidence → user consequence → correction → verification.
+7. Rank by blocker, high, medium, and polish. Do not assign severity from taste alone.
 
-## Build and refine workflow
+## Evidence-backed definition of done
 
-1. Restate the interface purpose, primary user, primary task, and constraints.
-2. Inspect the host system and relevant screens.
-3. Write the evidence brief from `references/distinctiveness.md`.
-4. Write a compact content and interaction hierarchy before styling.
-5. For a new page or major redesign, compare three text-only compositions and select one
-   for a task-based reason.
-6. Complete the spatial brief; select macro models, rails, inset owners, density,
-   responsive transformations, tokens, and a surface treatment budget.
-7. Compose the largest regions before local component polish.
-8. Run the component selection pass for each ambiguous interaction and inspect the chosen
-   source-derived variants.
-9. Use canonical or repository primitives; complete all interaction states.
-10. Run `node scripts/audit-spacing.mjs <repo>`, then run the static quality,
-    distinctiveness, and spatial gates. Confirm static candidates in rendered context.
-11. Perform a subtractive pass, removing unnecessary boundaries, icons, labels, and effects.
-12. Add only justified motion.
-13. Verify semantics, keyboard, focus, contrast, reduced motion, overflow, zoom, and content
-   stress.
-14. Run relevant lint, type, unit, build, and visual checks.
-15. Report what changed, what was verified, and any deviations or remaining risks.
+A build is done only when the following are demonstrated, not self-scored:
 
-For high-fidelity work, take screenshots at narrow, medium, and wide widths. Compare
-geometry before color: container edges, baselines, component dimensions, gaps, wrapping,
-and visual mass.
+- screenshots or rendered inspection at relevant narrow, medium, and wide widths;
+- a documented visual direction and host-style preserve/question/reject decision;
+- a rendered typeface decision, explicit weight hierarchy, and no synthetic or
+  indiscriminate bold;
+- three structural concepts and task-based rejection of two;
+- a route-specific topology and at least three product-specific decisions;
+- component and variant records for visible interactions, including expressive CTA
+  consideration when applicable;
+- complete compound interactions and state behavior;
+- a containment tree in which every visible nested boundary has a distinct role;
+- no accidental peer asymmetry or unexplained empty region;
+- credible content and proof;
+- keyboard, focus, semantics, contrast, zoom, overflow, and reduced motion checks;
+- relevant lint, type, test, build, and audit commands pass or are disclosed;
+- blind evaluation cases are reviewed when changing the skill itself.
 
-## Audit and review workflow
-
-Audits are read-only unless the user separately requests implementation.
-
-1. Establish the reviewed surface and evidence.
-2. Inspect representative routes, components, states, and viewport widths.
-3. Run `node scripts/audit-ui.mjs <repo>` and
-   `node scripts/audit-spacing.mjs <repo>` if useful.
-4. Inspect effective outer insets, width use, rails, and ancestor spacing at narrow and
-   extra-wide viewports.
-5. Inventory generic-output signals and judge their accumulation in rendered context.
-6. Separate observed defects from inferred risks.
-7. Rank by impact: blocker, high, medium, polish.
-8. Cite files and lines when reviewing source.
-9. Give a concrete correction, not a taste-only complaint.
-10. Keep motion discovery to 5–7 opportunities and show at least 3 rejected candidates.
-11. Use `references/audit-playbook.md` and the appropriate format in
-   `references/output-contracts.md`.
-
-## Definition of done
-
-A build is done only when:
-
-- the primary task is obvious;
-- the layout passes the static quality gate;
-- the spatial brief and spatial quality gate pass, with no unexplained page inset,
-  maximum width, doubled spacing owner, or trapped width-hungry region;
-- the distinctiveness score is at least 9/12 with no zero and three product-specific
-  decisions can be named;
-- selected components meet their contract;
-- states and responsive transformations are complete;
-- keyboard, focus, semantics, contrast, and reduced motion are verified;
-- purposeful motion does not mask layout or interaction defects;
-- relevant checks pass, or failures are explicitly reported.
-
-An audit is done only when findings are evidence-backed, prioritized, and directly
-actionable.
+Never place an internal score in the shipped interface as evidence that the interface is
+good. An audit is done only when its findings are observable, prioritized, and actionable.

@@ -37,6 +37,11 @@ dashboard layout, or marketing section is a new composition unless its implement
 also present in the asset kit. It may be designed in the same visual language, but must not
 be labeled canonical.
 
+Outside exact-match work, a sound repository-native primitive remains first choice. When
+the host lacks a suitable primitive and the target is React-capable, the bundled canonical
+component is the default implementation source. Do not hand-write a lookalike button,
+select, dropdown, dialog, tabs, badge, or other covered primitive merely for speed.
+
 ## 2. Asset map
 
 Read `assets/component-kit/manifest.json` to locate categories and files.
@@ -174,6 +179,9 @@ For overlays also test:
 - Use tabs for peer views, segmented controls for a compact mode switch, accordion for
   progressive disclosure, and steppers for ordered progress.
 - Tables need a reading and action model, not merely a grid of values.
+- A canonical component's default variant is not automatically the correct page variant.
+- Principal marketing CTAs must explicitly consider the Fancy Button when the action is
+  rare enough to carry expressive emphasis.
 
 ## 7. Porting rules
 

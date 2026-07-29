@@ -20,7 +20,7 @@ component is still wrong.
 If the user names a component, use it unless it conflicts with accessibility or explicit
 repository constraints. Still choose its variant deliberately.
 
-Otherwise:
+Otherwise, create a record for every visible interaction, not only ambiguous ones:
 
 1. Classify the interaction by semantics before considering appearance.
 2. Record the decision facts below.
@@ -32,6 +32,8 @@ Otherwise:
 7. Inspect its actual source-derived variant axes.
 8. Select the variant according to hierarchy, risk, frequency, density, and scope.
 9. Render and review the decision in context.
+10. Confirm that a sound host or canonical component was used instead of a hand-written
+    substitute.
 
 Do not:
 
@@ -40,6 +42,7 @@ Do not:
 - choose by screenshot resemblance before interaction semantics;
 - use a generic component when a purpose-built canonical component exists;
 - invent a hybrid component to avoid choosing;
+- hand-write an ordinary primitive already covered by a sound host or canonical component;
 - expose a long decision monologue to the user unless requested.
 
 Keep a compact decision record for implementation:
@@ -110,6 +113,10 @@ should remain stable.
 | Two or three visible related actions | Button Group | The items represent a selected value |
 | More than three or overflow actions | Dropdown | One action is important enough to remain visible |
 | Rare expressive marketing action | Fancy Button | Used in dense product UI or repeated collections |
+
+For a rare principal hero or final conversion action, Fancy Button is a mandatory candidate.
+Record why it was chosen or rejected. If the action navigates, retain a real link contract
+around or within the supported composition rather than changing its semantics.
 
 A Button Group executes independent actions. A Segmented Control selects one current mode.
 Do not substitute one for the other because their silhouettes are similar.
@@ -295,7 +302,8 @@ Rules interact. Apply these overrides deliberately:
 - **Forms:** favor visible choices when comparison affects the decision. Keep label, control,
   hint, and error in one semantic group.
 - **Marketing:** expressive variants may be used rarely around the principal conversion
-  action; they do not override action semantics.
+  action; they do not override action semantics. For principal hero and final CTAs, compare
+  Fancy Button with Button or Link Button instead of defaulting to the ordinary variant.
 - **Mobile:** change composition before changing meaning. A wide action group may become a
   menu, horizontal tabs may become a contained overflow treatment, and a substantial
   secondary workflow may move to a Drawer.
@@ -314,6 +322,8 @@ After rendering, inspect the actual page and ask:
 - Is an icon-only action recognizable, named, and explained?
 - Is an overlay type correct for its content and focus behavior?
 - Does the responsive transformation preserve meaning?
+- Was a covered interaction hand-written despite an available sound primitive?
+- For a rare marketing CTA, was the expressive candidate considered and recorded?
 
 If the answer is uncertain, compare the selected component with its nearest neighbor in
 `assets/component-selection.json` and revise before visual polish.

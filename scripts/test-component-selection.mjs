@@ -70,6 +70,18 @@ const cases = [
     ],
     expected: 'checkbox',
   },
+  {
+    name: 'rare expressive marketing action',
+    args: [
+      '--intent', 'promotional-action',
+      '--apply', 'navigation',
+      '--scope', 'marketing',
+      '--frequency', 'rare',
+      '--importance', 'principal',
+      '--expressiveness', 'expressive',
+    ],
+    expected: 'fancy-button',
+  },
 ];
 
 function recommend(testCase, sourcePath = metadataPath) {
@@ -108,6 +120,29 @@ try {
       `${testCase.name} must remain stable when catalog order changes`,
     );
   }
+
+  const marketingNavigation = JSON.parse(
+    execFileSync(
+      process.execPath,
+      [
+        recommender,
+        '--intent', 'navigate',
+        '--apply', 'navigation',
+        '--scope', 'marketing',
+        '--frequency', 'rare',
+        '--importance', 'principal',
+        '--expressiveness', 'expressive',
+        '--metadata', metadataPath,
+        '--json',
+      ],
+      { encoding: 'utf8' },
+    ),
+  );
+  assert.match(
+    marketingNavigation.considerations[0],
+    /Fancy Button/,
+    'rare principal marketing navigation must consider Fancy Button',
+  );
 
   const variants = JSON.parse(
     execFileSync(process.execPath, [variantExtractor, 'button', 'select', '--json'], {

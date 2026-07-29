@@ -18,20 +18,25 @@ canonical component work.
 
 ## 1. Visual character
 
-Aim for:
+Do not begin from one universal taste. Select and name a character supported by the
+product, audience, task, content, brand, or supplied references. Valid systems include:
 
-- quiet confidence rather than spectacle;
-- compact, deliberate product density;
-- neutral surfaces with semantic color used sparingly;
-- crisp typography with short hierarchy jumps;
-- subtle borders and shadows that explain containment;
-- small radii on controls and moderate radii on larger surfaces;
-- icons that clarify action, status, or object type;
-- animation that reinforces structure.
+- quiet and restrained;
+- dense and technical;
+- tactile and layered;
+- editorial and typographic;
+- playful and illustrative;
+- media-led and cinematic;
+- crisp and utilitarian;
+- spatial and canvas-like.
 
-The interface should look designed before it looks decorated. Remove ornamental gradients,
-glows, glass effects, floating blobs, and excessive pills unless the product identity or
-content explicitly calls for them.
+Combine traits deliberately; do not apply an entire fashionable style package. “Quiet
+confidence” is not a quality guarantee and may produce the same giant headline, tiny mono
+eyebrow, off-white canvas, sparse rules, and empty sections as other generated work.
+
+The interface should look authored before it looks decorated. Effects, color, imagery,
+depth, and expressive type are allowed when they establish identity, explain structure,
+or support content. Remove them only when they are ungrounded or accumulated by reflex.
 
 ## 2. Token architecture
 
@@ -98,6 +103,40 @@ Dark mode is a semantic remap, not a color inversion:
 
 ## 4. Typography
 
+### Select the typeface deliberately
+
+The repository's current font is evidence, not authority. Preserve it when it is a
+documented brand choice or when its character, metrics, language coverage, and available
+styles support the product. Question it when it is merely a framework starter, a default
+sans stack, Inter or Geist without rationale, or when every product built from the
+repository inherits the same voice.
+
+Record:
+
+```text
+Current face and why it may exist:
+Product character and reading conditions:
+Required scripts, numerals, weights, italics, and variable axes:
+Current face versus credible alternative:
+Decision — preserve, revise, or replace:
+Fallback metrics, loading, licensing, and performance:
+```
+
+When the choice is not already constrained by brand or an exact component contract,
+render the current face beside at least one credible alternative. Compare a page title,
+paragraph, compact control, dense row, tabular numbers, long label, and localization
+sample. Do not choose from a font name or marketing specimen alone.
+
+Choose one primary family by default. Add a display, serif, or mono companion only when it
+has a defined information role. Verify actual files exist for the styles used, prevent
+synthetic bold and italic, and keep fallbacks close enough in metrics to avoid damaging
+layout shift.
+
+Exact canonical components retain Inter and their source metrics. That contract does not
+make Inter the automatic page or brand face outside the component.
+
+### Control weight distribution
+
 The canonical scale has four functional families:
 
 - `title-*`: display and page headings, medium weight;
@@ -110,6 +149,16 @@ Canonical headline sizes run from 20/28 through 56/64. Labels and paragraphs cov
 
 Rules:
 
+- make regular weight the baseline for prose, descriptions, metadata, table cells, list
+  rows, unselected navigation, and ordinary values;
+- use medium weight for controls, selected navigation, compact headings, and labels that
+  need operational emphasis;
+- reserve semibold and bold for sparse focal anchors, exceptional values, or deliberate
+  brand display; do not apply them to every title, button, row name, and status;
+- in an ordinary product region, regular-weight text should usually outnumber text at 600
+  or above. If it does not, treat the hierarchy as compressed and justify or rebalance it;
+- do not stack size, heavy weight, high contrast, containment, and central placement on the
+  same element when fewer signals establish the hierarchy;
 - use no more than three obvious type levels in one local region;
 - let size, weight, tone, and placement agree on the same hierarchy;
 - keep product page titles compact; reserve display sizes for marketing moments;
@@ -178,7 +227,7 @@ Use radius by scale and purpose:
 
 Do not make every rectangle a pill.
 
-Containment order:
+Containment ladder:
 
 1. whitespace;
 2. alignment;
@@ -187,7 +236,10 @@ Containment order:
 5. shadow;
 6. strong color.
 
-Use the least force that communicates the boundary.
+Use enough force to make grouping, affordance, and hierarchy immediately legible. The
+least force is not always the right force: rich tools, media surfaces, selected objects,
+and floating interaction layers may need depth, tint, or strong contrast. Do not flatten
+useful affordances in the name of restraint.
 
 Shadows should explain elevation:
 
@@ -217,6 +269,8 @@ Imagery:
 - plan focal-point cropping at each breakpoint;
 - avoid generic stock photos that do not support the claim;
 - provide useful alt text or empty alt for decorative imagery.
+- decide explicitly whether media is structurally important, supporting, or absent;
+- when references are media-led, do not replace imagery with text-only boxes and rules.
 
 ## 8. State language
 
@@ -242,6 +296,9 @@ way to explain why an action is unavailable.
 
 - [ ] Semantic tokens, not scattered literals
 - [ ] Clear neutral text hierarchy
+- [ ] Typeface preserved or replaced through a rendered comparison
+- [ ] Regular weight is the baseline; heavy weights remain scarce and purposeful
+- [ ] Loaded font files cover every used weight and style without synthesis
 - [ ] Semantic colors used only for meaning
 - [ ] Three or fewer local type levels
 - [ ] Spacing communicates grouping

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "dimensions": {
     "intent": "What the user is trying to do: execute, navigate, choose, disclose, inspect, or understand.",
     "apply": "When the choice takes effect: immediate, submit, navigation, or none.",
@@ -7,7 +7,10 @@
     "space": "Whether the context is compact or regular.",
     "content": "Whether labels are plain, descriptive, searchable, grouped, rich, or tabular.",
     "risk": "Whether the action is normal or destructive.",
-    "optionCount": "How many choices or actions are present."
+    "optionCount": "How many choices or actions are present.",
+    "frequency": "How often the action appears or is used: repeated, routine, occasional, or rare.",
+    "importance": "Its local hierarchy: principal, supporting, quiet, or destructive.",
+    "expressiveness": "Whether the visual direction calls for restrained, standard, or expressive treatment."
   },
   "components": [
     {

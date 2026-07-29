@@ -15,7 +15,7 @@ interchangeable interface assembled from statistical defaults.
 7. Marketing rules
 8. Content and state credibility
 9. Subtractive review
-10. Distinctiveness score
+10. Evidence review
 11. Exceptions and exact-component work
 
 ## 1. The accumulation test
@@ -86,6 +86,20 @@ decisions.
 - generic icon sets standing in for a real information model;
 - a polished happy path without empty, loading, stale, offline, or failed states.
 
+### Anti-slop monoculture
+
+- oversized grotesk headings paired with tiny tracked uppercase mono labels;
+- off-white, black, cobalt, and a single dark inversion section used as a complete identity;
+- rulers, section numbers, coordinates, crop marks, and measurement labels as decoration;
+- sparse editorial split sections repeated regardless of the content;
+- ledgers and thin horizontal rules substituted for richer interaction;
+- huge empty regions defended as “breathing room” without a focus or reading benefit;
+- full-width solid CTA bands and dark utility footers;
+- subtraction used to remove useful depth, imagery, affordance, or compound interaction.
+
+Audit the host codebase for these signals as rigorously as ordinary AI slop. Established
+repetition is evidence of prevalence, not necessarily quality.
+
 ## 3. Evidence brief
 
 Before composing a new page or materially redesigning one, write:
@@ -140,22 +154,23 @@ integrated at the point of use.
 
 ## 5. Treatment budget
 
-Set a treatment budget before local polish:
+Set a contextual treatment budget before local polish:
 
-- use no more than two main surface treatments in one view;
-- create a card only when it adds grouping, interaction, clipping, contrast, or elevation;
-- use at most one equal-card row, and only for genuinely peer objects;
-- do not nest more than one card boundary;
-- use pills only for tags, statuses, compact selection, or short categorical filters;
-- use tinted icon containers only when color or shape encodes a stable category;
-- use gradients, glass, glow, blur, and decorative grids only when a supplied reference,
-  established identity, or functional visualization requires them;
-- define two or three radius tiers tied to component scale; do not apply one radius
-  everywhere;
-- reserve strong shadow and saturated color for hierarchy, state, or interaction;
-- let whitespace, rules, typography, and alignment group content before adding a box.
+- list the surface, depth, radius, color, media, and decorative treatments the direction
+  actually needs;
+- create containment when it adds grouping, interaction, clipping, contrast, or elevation;
+- record the containment tree for the dominant object; parent and child boundaries must
+  name different jobs;
+- keep peer surfaces coherent while allowing hierarchical surfaces to differ;
+- use pills, icon containers, gradients, glass, glow, blur, grids, strong shadow, and
+  saturated color only when their role can be named;
+- avoid nested boundaries that do not add a new interaction or grouping level;
+- define a small radius and depth system appropriate to the chosen character;
+- do not impose an arbitrary maximum number of cards or treatments when the content model
+  genuinely requires them;
+- do not flatten a rich reference into rules and whitespace merely to appear restrained.
 
-Budgets are constraints, not targets. Zero gradients and zero shadows may be correct.
+The budget is an explanation of roles, not a minimalism quota.
 
 ## 6. Dashboard rules
 
@@ -208,7 +223,8 @@ as a mandatory sequence.
 After the first complete pass:
 
 1. Outline every surface.
-2. Remove one unnecessary boundary at a time.
+2. Name each boundary's grouping, interaction, clipping, scroll, contrast, or elevation
+   role; remove one unnecessary parent or child boundary at a time.
 3. Remove decorative icons that do not encode information or improve recognition.
 4. Remove duplicated labels and repeated summaries.
 5. Consolidate equal-priority regions that are not truly peers.
@@ -219,28 +235,20 @@ After the first complete pass:
 Do not remove useful affordances, focus indicators, status semantics, or error context in
 the name of minimalism.
 
-## 10. Distinctiveness score
+## 10. Evidence review
 
-Score each item 0, 1, or 2:
+Do not self-award a numerical distinctiveness score. Record observable evidence:
 
-- product specificity;
-- composition follows the decision model;
-- surface and decoration restraint;
-- content and data credibility;
-- recognizable visual or structural identity;
-- realistic states and content stress.
+- three decisions that would not transfer unchanged to another product;
+- the topology and task reason;
+- host patterns preserved, questioned, and rejected;
+- ordinary-slop and anti-slop signals found and resolved;
+- component and variant choices that changed the experience;
+- realistic content, system states, and stress cases;
+- rendered narrow, medium, and wide comparisons.
 
-Interpretation:
-
-- 11–12: deliberate and product-specific;
-- 9–10: usable, but revise the weakest category;
-- 6–8: generic drift; perform the subtractive and composition passes;
-- below 6: return to the evidence brief.
-
-No zero is allowed at handoff. A fabricated data or proof item is an automatic failure.
-
-Finish by naming three product-specific decisions. If the reasons are merely “modern,”
-“clean,” “premium,” “balanced,” or “best practice,” the view has not passed.
+A fabricated data or proof item is an automatic failure. If the reasons are merely
+“modern,” “clean,” “premium,” “balanced,” or “best practice,” revise the direction.
 
 ## 11. Exceptions and exact-component work
 
@@ -248,6 +256,6 @@ Canonical components should remain exact. Do not mutate a button, table, dialog,
 control merely to make it more distinctive. Apply this reference to page composition,
 content, density, and the selection of components around those canonical assets.
 
-An established repository design system may intentionally use cards, pills, Inter, or a
-particular radius. Preserve it, then prevent unnecessary repetition and use product
-structure to create identity.
+An established repository may intentionally use cards, pills, Inter, or a particular
+radius. Preserve decisions that are deliberate and sound. Question them when accumulation
+creates ordinary slop, anti-slop, weak affordance, or conflict with explicit references.

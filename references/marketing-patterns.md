@@ -43,6 +43,10 @@ Content requirements:
 - keep proof near the claim it supports;
 - use one primary call to action and one legitimate alternative at most.
 
+Familiar patterns are allowed when the content supports them. A centered hero may be the
+best composition for one focused promise; equal cards may be right for true peers. Judge
+the accumulation and evidence, not the familiarity of one pattern.
+
 ## 2. Header and hero
 
 Header:
@@ -83,6 +87,9 @@ Evidence can be:
 - case study;
 - security, reliability, or compliance proof;
 - transparent product detail.
+
+Internal audit records, self-awarded quality scores, mock “ready” states, invented usage,
+and fabricated operational data are not evidence and must never appear as proof.
 
 Feature composition:
 
@@ -131,12 +138,17 @@ CTA hierarchy:
 - adapt copy to the user's stage: “View demo,” “Start trial,” and “Contact sales” are
   different commitments;
 - explain friction or prerequisites near the action.
+- choose and record the component and variant, not only button copy and color;
+- for the rare principal hero and final conversion actions, compare Fancy Button against
+  Button or Link Button and record why its expressiveness is earned or rejected.
 
 Final CTA:
 
 - restate outcome, not the whole hero;
 - resolve the largest remaining objection;
 - avoid an oversized gradient panel that contains only a repeated button.
+- do not default to a full-width solid-color band as the anti-gradient replacement;
+- change topology, proof, or interaction when the final section needs renewed interest.
 
 ## 6. Responsive composition
 
@@ -192,6 +204,9 @@ Motion must stop or simplify for reduced-motion preferences and must not create 
 - multiple competing conversion buttons;
 - pricing differences hidden in fine print;
 - scroll animation as the primary source of interest.
+- giant headline + tiny mono eyebrow + sparse ruled sections as the primary source of
+  anti-slop identity;
+- fake scorecards or decision records used as product proof;
 - the complete hero → three cards → testimonials → pricing → CTA sequence without
   evidence that each section advances the decision;
 - generic icon tiles or bento grids used to manufacture feature count;

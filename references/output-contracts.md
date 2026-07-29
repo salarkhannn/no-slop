@@ -29,6 +29,11 @@ Deviations or risks
 - Any canonical difference, untested condition, or external blocker
 ```
 
+For a new page or material redesign, include the visual direction, host-style
+preserve/question/reject decision, chosen structural concept, rejected concepts, compound
+patterns, component/variant records, symmetry contract, and rendered evidence. Keep them
+compact but verifiable.
+
 Lead with the outcome. Do not narrate every edit.
 
 ## Implementation plan
@@ -64,10 +69,8 @@ Findings
    - Correction:
    - Verify:
 
-Static quality score
-- Purpose: n/2
-- Hierarchy: n/2
-...
+Static evidence
+- Criterion — route/viewport/state observation and verification
 
 Spatial decision
 - Model and rails:
@@ -97,7 +100,7 @@ Findings
    - Correction:
    - Verify:
 
-Static quality score
+Static evidence
 - Each layout criterion, with unrendered items marked unverified
 
 Motion inventory

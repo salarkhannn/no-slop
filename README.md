@@ -2,7 +2,9 @@
 
 `no-slop` is an agent skill for designing, building, refining, and reviewing web
 interfaces. It gives coding agents a structured approach to composition, component
-selection, spacing, responsive behavior, accessibility, and motion.
+selection, spacing, responsive behavior, accessibility, and motion. It audits the host
+visual language instead of blindly inheriting it, including both familiar AI slop and
+formulaic anti-slop patterns.
 
 ## Install
 
@@ -208,9 +210,13 @@ Use $no-slop to match the bundled canonical React components exactly.
 The package includes:
 
 - design, layout, component, responsive, accessibility, and motion guidance;
+- visual-direction challenge, structural composition, compound-pattern, and symmetry
+  contracts;
 - a canonical React component kit and selection data;
-- scripts for repository scanning, spacing audits, component selection, dependency
-  resolution, and asset verification.
+- scripts for repository scanning, UI and component-use audits, spacing audits, component
+  and variant selection, dependency resolution, and asset verification;
+- a blind evaluation suite spanning marketing, dense product UI, media, enterprise, and
+  bare-codebase scenarios.
 
 Agents load the supporting files only when the task needs them.
 

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "id": "developer-tool-landing",
+      "surface": "marketing",
+      "prompt": "Create a landing page for an open-source developer tool with only repository documentation as proof.",
+      "stress": ["no invented metrics", "principal GitHub navigation CTA", "technical demonstration"]
+    },
+    {
+      "id": "crm-record-workspace",
+      "surface": "product",
+      "prompt": "Create a CRM account workspace for repeated relationship review and inline property editing.",
+      "stress": ["split context", "typed properties", "activity and permissions"]
+    },
+    {
+      "id": "issue-tracker",
+      "surface": "product",
+      "prompt": "Create an issue tracker for triage, nested work, saved filters, and bulk operations.",
+      "stress": ["filter builder", "grouped list", "keyboard workflow"]
+    },
+    {
+      "id": "media-notes",
+      "surface": "product",
+      "prompt": "Create a personal knowledge app for mixed links, images, notes, and saved collections.",
+      "stress": ["heterogeneous media", "masonry or gallery reasoning", "content stress"]
+    },
+    {
+      "id": "project-gallery",
+      "surface": "product",
+      "prompt": "Create a studio project workspace where visuals, status, client, budget, and messages affect selection.",
+      "stress": ["media-led cards", "peer symmetry", "detail inspection"]
+    },
+    {
+      "id": "enterprise-system",
+      "surface": "existing-system",
+      "prompt": "Extend a mature enterprise design system with a dense employee database and change history.",
+      "stress": [
+        "host compatibility",
+        "inherited typeface and weight challenge",
+        "containment-depth audit",
+        "data-grid interactions"
+      ]
+    },
+    {
+      "id": "bare-admin",
+      "surface": "new-system",
+      "prompt": "Create an operations console in a bare React repository with no design system.",
+      "stress": ["canonical component fallback", "decision-led dashboard", "error and stale states"]
+    },
+    {
+      "id": "settings-form",
+      "surface": "product",
+      "prompt": "Create a simple notification settings form without making the task theatrically complex.",
+      "stress": ["proportional composition", "submitted versus immediate choice", "restraint without anti-slop styling"]
+    }
+  ]
+}

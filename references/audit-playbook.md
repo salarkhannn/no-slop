@@ -42,6 +42,7 @@ Sample:
 - narrow, medium, and wide widths;
 - keyboard and reduced-motion behavior;
 - changed files for diff review.
+- the host visual language across at least three routes or page families;
 
 For each finding record:
 
@@ -50,7 +51,8 @@ Evidence → principle or contract → user consequence → correction → verif
 ```
 
 Use `node scripts/audit-ui.mjs <repo>` and `node scripts/audit-spacing.mjs <repo>` as
-static lead generators. The spatial audit skips protected canonical and generated source
+static lead generators. Also use `node scripts/audit-component-use.mjs <repo>` to find
+possible hand-written substitutes and unexamined default variants. The spatial audit skips protected canonical and generated source
 unless explicitly included. Confirm every reported candidate before presenting it as a
 defect.
 
@@ -91,8 +93,7 @@ Do not report whitespace, centering, a width cap, asymmetry, negative margin, or
 treatment as a defect by itself. Compare at least one viable alternative and report the
 task, reading, grouping, or alignment consequence.
 
-Use the 20-point static quality score in `layout-composition.md`, but report individual
-evidence rather than only a number.
+Use the static evidence gate in `layout-composition.md`. Do not award a summary score.
 
 ## 5. Distinctiveness audit
 
@@ -109,10 +110,14 @@ Check:
 - panels and charts without an evidence, decision, or action model;
 - missing content stress and system states;
 - three structural or visual decisions specific to the product.
+- anti-slop accumulation: giant headings, mono eyebrows, off-white/cobalt palettes,
+  rulers, ledgers, sparse split sections, unexplained empty regions, and solid CTA bands;
+- repeated route skeletons and missed compound interaction opportunities;
+- default component variants and hand-written substitutes.
 
-Use the 12-point distinctiveness score, but give pattern counts and concrete examples.
-Three related signals indicate generic drift. Five signals across categories justify
-revisiting the composition, not merely changing colors.
+Give pattern counts and concrete examples. Three related signals indicate generic drift.
+Five signals across categories justify revisiting the composition, not merely changing
+colors. Apply this to both ordinary slop and anti-slop patterns.
 
 ## 6. Component audit
 
@@ -128,7 +133,9 @@ For canonical components:
 For repository-native components:
 
 - evaluate internal consistency and accessibility;
-- do not force canonical styling unless the user requested it.
+- preserve them when sound;
+- question them when their variants, affordances, or accumulated visual language are weak;
+- do not force canonical styling merely to create difference.
 
 ## 7. Motion audit
 

@@ -161,6 +161,36 @@ const rules = [
 
 const aggregateSignalRules = [
   {
+    id: "generic-font-default-risk",
+    category: "visual-direction",
+    riskHint: "medium",
+    pattern:
+      /(?:@fontsource\/(?:inter|geist)|\bfont-family\s*:[^;\n]*(?:Inter|Geist|Arial|system-ui|ui-sans-serif)|\b(?:Inter|Geist)(?:_Tight|_Mono)?\s*\()/gi,
+    threshold: 2,
+    message: "A common starter typeface or system-sans stack appears repeatedly without proving that it is an intentional product voice.",
+    correction: "Inspect the host font source and render it against at least one credible alternative across title, body, controls, numerals, and stress content before preserving it.",
+  },
+  {
+    id: "heavy-font-weight-accumulation",
+    category: "hierarchy",
+    riskHint: "medium",
+    pattern:
+      /\bfont-(?:semibold|bold|extrabold|black)\b|\bfont-weight\s*:\s*(?:6[0-9]{2}|[7-9]00)\b/gi,
+    threshold: 12,
+    message: "Semibold and bold treatments appear frequently and may be compressing the text hierarchy.",
+    correction: "Inspect rendered regions, make regular weight the baseline, and reserve 600+ for sparse focal anchors whose hierarchy is not already established by size, tone, or position.",
+  },
+  {
+    id: "nested-surface-boundary-risk",
+    category: "composition",
+    riskHint: "medium",
+    pattern:
+      /<(?:div|section|article|aside|main)\b[^>]*(?:class|className)\s*=\s*["'`][^"'`]*(?:card|panel|surface|frame|window|shell|container)[^"'`]*["'`][^>]*>[\s\S]{0,1600}?<(?:div|section|article|aside)\b[^>]*(?:class|className)\s*=\s*["'`][^"'`]*(?:card|panel|surface|frame|window|shell|container)/gi,
+    threshold: 2,
+    message: "Several named surfaces appear nested inside other surfaces and may be duplicating containment.",
+    correction: "Draw the rendered containment tree and keep each child boundary only when it adds a distinct interaction plane, grouping level, clipping, scrolling, contrast, or elevation.",
+  },
+  {
     id: "surface-container-accumulation",
     category: "distinctiveness",
     riskHint: "medium",
@@ -219,6 +249,66 @@ const aggregateSignalRules = [
     threshold: 8,
     message: "Repeated icon containers may be decorating every item instead of encoding categories.",
     correction: "Remove decorative icon boxes or make their shape and color carry stable information.",
+  },
+  {
+    id: "anti-slop-eyebrow-accumulation",
+    category: "visual-direction",
+    riskHint: "medium",
+    pattern:
+      /\b(?:eyebrow|section-label|kicker|overline)\b|\b(?:uppercase|text-transform\s*:\s*uppercase)\b[^\n"'`}]*(?:tracking-|letter-spacing\s*:)|\b(?:tracking-|letter-spacing\s*:)[^\n"'`}]*(?:uppercase|text-transform\s*:\s*uppercase)/gi,
+    threshold: 4,
+    message: "Tiny tracked uppercase labels appear repeatedly and may have become an anti-slop house style.",
+    correction: "Confirm each label clarifies information architecture; remove decorative eyebrows and vary typography from the product direction.",
+  },
+  {
+    id: "anti-slop-display-heading-accumulation",
+    category: "visual-direction",
+    riskHint: "medium",
+    pattern:
+      /\btext-(?:6xl|7xl|8xl|9xl)\b|\bfont-size\s*:\s*(?:clamp\([^;\n]*(?:4|5|6|7|8)rem|(?:6[4-9]|[7-9]\d|1\d\d)px)/gi,
+    threshold: 3,
+    message: "Several oversized display headings were detected.",
+    correction: "Verify the content earns display scale and that the actual work, proof, or media remains the focal anchor.",
+  },
+  {
+    id: "ruled-ledger-accumulation",
+    category: "visual-direction",
+    riskHint: "medium",
+    pattern:
+      /\b(?:ledger|ruler|measure-mark|section-index)\b|\bborder-(?:t|b|y)\b|\bborder-(?:top|bottom)\s*:|\bdivide-y\b/gi,
+    threshold: 18,
+    message: "Horizontal rules are heavily repeated and may be substituting for richer object or interaction structure.",
+    correction: "Inspect whether the content needs a ledger, grouped list, table, board, inspector, or media-led topology.",
+  },
+  {
+    id: "large-empty-region-risk",
+    category: "layout",
+    riskHint: "medium",
+    pattern:
+      /\bmin-h-(?:screen|\[(?:6\d\d|[7-9]\d\d|1\d{3,})px\])\b|\bmin-height\s*:\s*(?:[6-9]\d\d|1\d{3,})px/gi,
+    threshold: 3,
+    message: "Several large minimum-height regions were detected and may create unexplained empty space.",
+    correction: "Confirm in rendered wide and short-height views that every large quiet region improves focus, reading, manipulation, or hierarchy.",
+  },
+  {
+    id: "repeated-page-skeleton-risk",
+    category: "composition",
+    riskHint: "medium",
+    pattern:
+      /\b(?:PageHeader|SectionHeader|PageTitle|HeaderActions|FilterBar|DataTable|EmptyState)\b/gi,
+    threshold: 14,
+    message: "Page-header, filter, table, and empty-state primitives repeat heavily across the repository.",
+    correction: "Compare sibling routes by primary object and decision; confirm the shared shell has not forced identical page topology.",
+  },
+  {
+    id: "full-width-cta-band-risk",
+    category: "visual-direction",
+    riskHint: "polish",
+    pattern:
+      /\b(?:w-screen|left-\[50%\]|full-bleed|edge-to-edge)\b[^\n"'`}]*(?:bg-(?:blue|indigo|black)|background-color\s*:)/gi,
+    threshold: 2,
+    message: "Repeated full-width saturated bands may be an anti-slop CTA default.",
+    correction: "Confirm each band advances the argument or interaction rather than merely replacing a gradient CTA panel.",
   },
 ];
 
@@ -358,7 +448,7 @@ const report = {
   totalCandidates: uniqueFindings.length,
   counts,
   note:
-    "Risk hints prioritize static candidates. Aggregate distinctiveness signals indicate accumulation, not proof; confirm them in rendered context.",
+    "Risk hints prioritize static candidates. Aggregate visual-direction and distinctiveness signals indicate accumulation, not proof; confirm them in rendered context.",
   findings: limitedFindings,
 };
 

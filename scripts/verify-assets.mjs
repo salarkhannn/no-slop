@@ -8,6 +8,16 @@ const skillRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const kitRoot = join(skillRoot, "assets", "component-kit");
 const manifestPath = join(kitRoot, "manifest.json");
 const dependenciesPath = join(kitRoot, "dependencies.json");
+const selectionPath = join(skillRoot, "assets", "component-selection.json");
+const evalsPath = join(skillRoot, "evals", "cases.json");
+const requiredGuidance = [
+  "references/visual-direction.md",
+  "references/composition-grammar.md",
+  "references/compound-patterns.md",
+  "references/symmetry-balance.md",
+  "references/evaluation.md",
+  "scripts/audit-component-use.mjs",
+];
 const errors = [];
 
 function readJson(path) {
@@ -39,6 +49,8 @@ function externalRoot(specifier) {
 
 const manifest = readJson(manifestPath);
 const dependencies = readJson(dependenciesPath);
+const selection = readJson(selectionPath);
+const evaluations = readJson(evalsPath);
 const componentRoot = join(kitRoot, manifest.roots?.components ?? "");
 const hookRoot = join(kitRoot, manifest.roots?.hooks ?? "");
 const utilsRoot = join(kitRoot, manifest.roots?.utils ?? "");
@@ -58,6 +70,23 @@ if (publicComponents.length !== 49) {
 }
 if (new Set(publicComponents).size !== publicComponents.length) {
   errors.push("Public component catalog contains duplicate slugs");
+}
+if (selection.components?.length !== 49) {
+  errors.push(`Expected 49 component-selection entries, found ${selection.components?.length ?? 0}`);
+}
+for (const dimension of ["frequency", "importance", "expressiveness"]) {
+  if (!selection.dimensions?.[dimension]) errors.push(`Missing selection dimension: ${dimension}`);
+}
+if (!Array.isArray(evaluations.cases) || evaluations.cases.length < 8) {
+  errors.push("Blind evaluation suite must contain at least 8 cases");
+}
+for (const relativePath of requiredGuidance) {
+  if (!existsSync(join(skillRoot, relativePath))) errors.push(`Missing required guidance: ${relativePath}`);
+}
+for (const testCase of evaluations.cases ?? []) {
+  if (!testCase.id || !testCase.surface || !testCase.prompt || !Array.isArray(testCase.stress)) {
+    errors.push(`Invalid blind evaluation case: ${JSON.stringify(testCase)}`);
+  }
 }
 for (const name of publicComponents) {
   const sourceName = manifest.aliases?.[name] ?? name;
@@ -129,6 +158,7 @@ console.log(
       sourceFiles: sourceFiles.length,
       externalDependencies: [...externalImports].sort(),
       tokenFile: manifest.tokenFile,
+      blindEvaluationCases: evaluations.cases?.length ?? 0,
     },
     null,
     2,

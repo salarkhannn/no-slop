@@ -24,6 +24,9 @@ Dimensions:
   --space compact|regular
   --content plain|descriptive|searchable|grouped|rich|tabular
   --risk normal|destructive
+  --frequency repeated|routine|occasional|rare
+  --importance principal|supporting|quiet|destructive
+  --expressiveness restrained|standard|expressive
   --count <number>       Number of choices or actions
   --metadata <path>      Override metadata path for validation
 
@@ -76,6 +79,9 @@ const facts = {
   space: valueFor('--space'),
   content: valueFor('--content'),
   risk: valueFor('--risk'),
+  frequency: valueFor('--frequency'),
+  importance: valueFor('--importance'),
+  expressiveness: valueFor('--expressiveness'),
   optionCount: countRaw === undefined ? undefined : Number(countRaw),
 };
 
@@ -84,7 +90,45 @@ if (facts.optionCount !== undefined && (!Number.isInteger(facts.optionCount) || 
   process.exit(2);
 }
 
-const dimensions = ['apply', 'scope', 'space', 'content', 'risk'];
+const dimensions = [
+  'apply',
+  'scope',
+  'space',
+  'content',
+  'risk',
+  'frequency',
+  'importance',
+  'expressiveness',
+];
+
+function variantGuidance(component) {
+  if (component.id === 'button') {
+    if (facts.risk === 'destructive' || facts.importance === 'destructive') {
+      return 'Choose an error variant; use filled only for the focused confirmed destructive outcome.';
+    }
+    if (facts.importance === 'principal') {
+      return 'Consider primary + filled if this is the one principal action in its local group.';
+    }
+    if (facts.frequency === 'repeated' || facts.importance === 'quiet') {
+      return 'Prefer a quiet neutral mode such as ghost for repeated or low-emphasis actions.';
+    }
+    return 'Compare neutral stroke/lighter with primary filled; do not accept the source default without a hierarchy reason.';
+  }
+  if (component.id === 'fancy-button') {
+    return 'Use only for a rare principal marketing or milestone action; preserve real action or link semantics.';
+  }
+  if (component.id === 'link-button') {
+    return 'Choose prominence from the local conversion hierarchy and preserve a real URL contract.';
+  }
+  if (component.id === 'compact-button') {
+    return 'Choose stroke for isolated discoverability and ghost for repeated utilities; every icon-only action needs an accessible name.';
+  }
+  if (component.id === 'select') {
+    if (facts.space === 'compact') return 'Compare compact and inline variants in the actual toolbar or scope-control context.';
+    return 'Use default for an ordinary form field; compare compactForInput when embedded in another input composition.';
+  }
+  return 'Inspect the canonical variant axes and choose from hierarchy, frequency, risk, density, and scope.';
+}
 
 function score(component) {
   let total = 10;
@@ -127,6 +171,7 @@ function score(component) {
     useWhen: component.useWhen,
     avoidWhen: component.avoidWhen,
     neighbors: component.neighbors,
+    variantGuidance: variantGuidance(component),
   };
 }
 
@@ -139,9 +184,20 @@ const candidates = metadata.components
   );
 
 const shown = args.includes('--all') ? candidates : candidates.slice(0, 3);
+const considerations = [];
+if (
+  facts.scope === 'marketing' &&
+  facts.importance === 'principal' &&
+  facts.frequency === 'rare' &&
+  intent !== 'promotional-action'
+) {
+  considerations.push(
+    'Fancy Button is a mandatory comparison candidate for this rare principal marketing action; retain the correct execute or navigate semantics.',
+  );
+}
 
 if (args.includes('--json')) {
-  console.log(JSON.stringify({ intent, facts, candidates: shown }, null, 2));
+  console.log(JSON.stringify({ intent, facts, considerations, candidates: shown }, null, 2));
 } else {
   console.log(`Intent: ${intent}`);
   const suppliedFacts = Object.entries(facts)
@@ -160,5 +216,10 @@ if (args.includes('--json')) {
     if (candidate.neighbors.length) {
       console.log(`   Compare: ${candidate.neighbors.join(', ')}`);
     }
+    console.log(`   Variant: ${candidate.variantGuidance}`);
+  }
+  if (considerations.length) {
+    console.log('\nRequired consideration:');
+    for (const consideration of considerations) console.log(`- ${consideration}`);
   }
 }

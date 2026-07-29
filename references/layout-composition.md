@@ -128,9 +128,15 @@ Prefer a parent `gap` for repeated siblings.
 Use `spatial-system.md` to classify the relationship, assign one owner, and distinguish
 surface padding from sibling gaps, section separation, and page-edge insets.
 
-## 5. Balance without forced symmetry
+## 5. Balance and intentional symmetry
 
-Symmetry is appropriate for:
+Symmetry is required locally for true peers:
+
+- shared component height, padding, baseline, icon placement, radius family, and states;
+- aligned actions and metadata slots in repeated cards or rows;
+- paired regions with one explicit grid and edge contract.
+
+Symmetry is appropriate globally for:
 
 - sign-in or focused single-task pages;
 - paired choices with equal weight;
@@ -153,6 +159,9 @@ Evaluate visual mass, not identical dimensions:
 
 If one side feels heavy, adjust scale, density, tone, or whitespace before inventing a
 decorative counterweight.
+
+Read `symmetry-balance.md` and test short, long, missing, selected, loading, and translated
+content before accepting peer geometry.
 
 ## 6. Compose responsive transformations
 
@@ -191,6 +200,21 @@ Symptom: every idea becomes an equal rounded card.
 
 Fix: identify the dominant region, remove unnecessary containers, vary span and density
 according to importance, and use section headings or dividers for weaker groups.
+
+### Container inside container
+
+Symptom: shell, section, showcase frame, window, panel, card, and inner card each add
+background, border, radius, padding, or shadow around the same content.
+
+Fix: draw the visual containment tree and name the unique role of every boundary. A child
+surface is justified only when it adds a distinct interaction plane, semantic group,
+clipping rule, scroll region, contrast, or elevation. When parent and child describe the
+same region, remove one layer of chrome and let alignment, spacing, or a single divider
+carry the relationship.
+
+Three visible boundaries around the same object require an explicit explanation for every
+level and a rendered comparison with one layer removed. Count visual boundaries, not DOM
+wrappers.
 
 ### Spacing without hierarchy
 
@@ -245,32 +269,24 @@ Symptom: long labels, tables, toolbars, or translated content break the shell.
 Fix: set `min-width: 0` where needed, define wrapping/truncation behavior, and test stress
 content rather than ideal strings.
 
-## 8. Static quality gate
+## 8. Static evidence gate
 
-Score each item 0, 1, or 2:
+Do not collapse composition quality into a self-awarded score. For each item record the
+route, viewport, state, observation, consequence, and verification:
 
 - purpose and primary action;
-- hierarchy;
-- alignment;
-- grouping;
-- spacing rhythm;
+- hierarchy and focal anchor;
+- alignment and peer symmetry;
+- grouping and spacing ownership;
 - width model and useful-space allocation;
-- effective outer insets and spacing ownership;
-- visual balance;
-- density consistency;
+- visual balance and density;
+- topology and compound interaction fit;
 - state completeness;
 - responsive transformation;
 - content resilience.
 
-Interpretation:
-
-- 18–20: ready for motion and polish;
-- 14–17: fix weak items first;
-- 10–13: composition needs another pass;
-- below 10: revisit the page thesis and structure.
-
-A high score does not override a blocker such as inaccessible navigation or clipped
-content.
+Unrendered criteria remain unverified. A screenshot does not prove keyboard or state
+behavior, and static source does not prove visual mass.
 
 ## 9. Diagnostic heuristics
 
@@ -279,6 +295,7 @@ Use these quick tests:
 - Blur test: can the major groups and emphasis still be perceived?
 - Grayscale test: does hierarchy survive without brand color?
 - Outline test: do too many nested boxes appear?
+- Containment-tree test: can every parent and child boundary name a different job?
 - Edge test: how many distinct left and right anchors exist?
 - Squint test: does one intended region dominate?
 - Five-second test: can a new user name the page and next action?

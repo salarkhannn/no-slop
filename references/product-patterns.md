@@ -24,6 +24,24 @@ operations consoles, and transactional business pages.
 - Use density intentionally; do not equate whitespace with quality.
 - Preserve context across navigation and updates.
 - Design for empty, partial, delayed, stale, failed, and high-volume data.
+- Choose topology from the primary object and repeated decision, not from a reusable route
+  template.
+- Use compound patterns when they preserve context or reduce steps.
+
+For every sibling route record:
+
+```text
+Primary object:
+Repeated decision:
+Topology:
+Dominant interaction:
+Density:
+State model:
+```
+
+If several routes resolve to the same title/description/action/filter/table-or-card
+skeleton, revisit the object model. Shared shells should create consistency; page topology
+should express the work.
 
 ## 2. Shells and navigation
 
@@ -121,6 +139,10 @@ Before building a table, define:
 - pagination or virtualization;
 - narrow-screen strategy.
 
+Also ask whether users need a filter builder, grouped list, inline edit, inspector,
+selection bar, split pane, board, gallery, or record-property grid. A table is justified by
+cross-row comparison, not by array-shaped data.
+
 Table rules:
 
 - left-align text, right-align comparable numbers;
@@ -193,6 +215,9 @@ Command menu:
 - include keyboard access and clear grouping;
 - do not hide the only path to a core action inside it.
 
+Read `compound-patterns.md` for the full behavior contracts. Combine primitives into one
+coherent task flow rather than scattering buttons and filters around a passive data view.
+
 ## 7. Feedback and system state
 
 Choose feedback by persistence and scope:
@@ -233,6 +258,9 @@ Errors:
 - decorative “live” dots without a freshness and failure model;
 - chart-plus-activity-plus-equal-KPI compositions selected before the decision model;
 - fake precision, deltas, users, incidents, or events used to make a mockup feel complete.
+- every route repeating the same page header, control band, table/card region, and empty
+  whitespace;
+- rich workflows represented as static ledgers because they look restrained;
 
 ## 9. Completion checklist
 
