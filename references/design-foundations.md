@@ -42,8 +42,10 @@ or support content. Remove them only when they are ungrounded or accumulated by 
 
 Use four layers:
 
-1. Raw: literal color, size, radius, font, and shadow values.
-2. Semantic: `text-strong`, `bg-weak`, `stroke-soft`, `error-base`, and similar roles.
+1. Raw: literal color, size, radius, font, and shadow values such as `neutral.950` or
+   `accent.500`.
+2. Semantic: role-only names such as `fg.default`, `surface.canvas`, `border.default`,
+   `action.primary`, and `focus.ring`.
 3. Component: control height, input padding, dialog width, navigation row, table cell.
 4. Local: rare one-off values justified by a specific composition.
 
@@ -60,46 +62,40 @@ When a repository already has tokens:
 
 ## 3. Color
 
-### Neutral hierarchy
+Classify the host before selecting a palette:
 
-Use semantic roles consistently:
+- **Preserve** a mature, repeated, accessible system.
+- **Repair** unclear roles, contrast failures, or accidental drift without replacing its
+  identity.
+- **Create** only when the repository has no credible system or the product direction
+  explicitly requires a new one.
 
-- `text-strong-950`: titles, primary values, active labels;
-- `text-sub-600`: body copy, supporting labels, ordinary metadata;
-- `text-soft-400`: placeholders, timestamps, tertiary context;
-- `text-disabled-300`: unavailable content only;
-- `bg-white-0`: primary canvas and elevated surface;
-- `bg-weak-50` or `bg-weak-25`: subtle grouped regions and hover fills;
-- `bg-soft-200`: stronger muted background;
-- `stroke-soft-200`: ordinary boundaries;
-- `stroke-sub-300`: emphasized boundaries;
-- `stroke-strong-950`: rare high-contrast boundary.
+Record the color owners, product conditions, host mode, base family, accent, contrast
+strategy, light/dark modes, semantic states, user-authored color, media, and data
+visualization needs. When creating or materially repairing a neutral system, render
+achromatic, warm-neutral, and cool-neutral candidates in the same representative screen.
+Select from the comparison; do not default to a fashionable product's palette.
 
-Do not use disabled contrast for ordinary secondary text.
+Keep these controls independent:
 
-### Semantic color
+- base family establishes the canvas and reading atmosphere;
+- accent identifies product identity and emphasis;
+- contrast controls hierarchy and density;
+- action, selection, and focus roles remain distinct even when they share a hue;
+- success, warning, danger, and information communicate meaning rather than brand;
+- chart series and user-authored colors use their own allocation rules.
 
-Reserve saturated roles for:
+Use numeric steps only for primitive scales. Components consume role-only semantic tokens
+such as `fg.muted`, `surface.raised`, `border.subtle`, `selection.bg`, and `focus.ring`.
+Canonical component tokens may retain their published names inside the exact component
+boundary.
 
-- primary: selected, focused, or principal action;
-- success: completed or healthy state;
-- warning: risk needing attention;
-- error: failure, destructive action, or invalid input;
-- information: neutral announcement or guidance.
+Dark mode is an independent semantic mapping, not an inversion. Verify text, boundaries,
+focus, selection, state colors, overlays, charts, and forced-colors behavior in each
+supported mode. Never rely on color alone.
 
-Do not color an entire large region when an icon, status label, border, or compact tint
-communicates the state. Never rely on color alone.
-
-### Dark mode
-
-Dark mode is a semantic remap, not a color inversion:
-
-- preserve relative hierarchy;
-- lower the apparent brightness of large surfaces;
-- avoid pure white body text across large areas;
-- ensure borders remain visible but quiet;
-- retune shadows and translucent overlays;
-- verify semantic tints independently.
+Read `color-systems.md` for the decision workflow, examples, contrast targets, and
+verification record.
 
 ## 4. Typography
 
@@ -241,6 +237,10 @@ least force is not always the right force: rich tools, media surfaces, selected 
 and floating interaction layers may need depth, tint, or strong contrast. Do not flatten
 useful affordances in the name of restraint.
 
+A boundary may also support an expressive or experiential system, such as a coherent
+window metaphor or tactile object language. Keep it when that responsibility is specific
+and consistent; remove it when parent and child repeat the same job.
+
 Shadows should explain elevation:
 
 - small: button or compact floating control;
@@ -249,10 +249,14 @@ Shadows should explain elevation:
 
 Avoid multiple unrelated shadow styles on the same screen.
 
-## 7. Icons and imagery
+## 7. Icons and visual media
 
 Icons:
 
+- classify the symbol as a functional icon, content identity, or expressive illustration
+  before choosing its source;
+- use the host or canonical family for functional controls; a bespoke expressive family
+  may differ when the product direction makes that contrast deliberate;
 - use one coherent icon family;
 - keep stroke/fill character consistent;
 - use 16 px for dense inline utility, 20 px for standard controls, and 24 px only when
@@ -260,17 +264,27 @@ Icons:
 - keep icon-only targets at least 40–44 CSS px where practical;
 - pair ambiguous icons with a label or tooltip;
 - use directional icons consistently with reading direction;
-- never use emoji as functional interface icons unless the product language demands it.
+- never use emoji as functional interface icons unless the product language demands it;
+- do not place every icon, initial, or number in a tinted square by habit; use a container
+  when it establishes a target, fallback identity, category, state, or coherent object
+  language;
+- do not substitute an initial or sequence number for a meaningful icon, portrait, label,
+  or ordered-list marker.
 
-Imagery:
+Visual media:
 
-- use real product imagery, diagrams, screenshots, or meaningful illustration;
+- classify material visuals as product evidence, data visualization, explanatory diagram,
+  or illustration and read `information-graphics.md`;
+- use real product imagery, diagrams, screenshots, or meaningful illustration in their
+  declared role;
 - preserve aspect ratios;
 - plan focal-point cropping at each breakpoint;
 - avoid generic stock photos that do not support the claim;
-- provide useful alt text or empty alt for decorative imagery.
+- provide useful alt text or empty alt for decorative imagery;
 - decide explicitly whether media is structurally important, supporting, or absent;
-- when references are media-led, do not replace imagery with text-only boxes and rules.
+- when references are media-led, do not replace imagery with text-only boxes and rules;
+- do not use abstract diagrams as product proof or turn prose into decorative nodes and
+  connectors.
 
 ## 8. State language
 
@@ -296,10 +310,13 @@ way to explain why an action is unavailable.
 
 - [ ] Semantic tokens, not scattered literals
 - [ ] Clear neutral text hierarchy
+- [ ] Palette mode is explicitly preserve, repair, or create
+- [ ] Achromatic, warm, and cool candidates were compared when neutral selection changed
 - [ ] Typeface preserved or replaced through a rendered comparison
 - [ ] Regular weight is the baseline; heavy weights remain scarce and purposeful
 - [ ] Loaded font files cover every used weight and style without synthesis
 - [ ] Semantic colors used only for meaning
+- [ ] Accent, action, selection, focus, status, and chart roles are not accidentally coupled
 - [ ] Three or fewer local type levels
 - [ ] Spacing communicates grouping
 - [ ] Page geometry and outer insets have content-based reasons
@@ -307,5 +324,6 @@ way to explain why an action is unavailable.
 - [ ] Radius matches scale and purpose
 - [ ] Borders and shadows explain structure
 - [ ] One coherent icon language
+- [ ] Material visuals have a declared evidence, explanation, data, or illustration role
 - [ ] Light and dark roles preserve hierarchy
 - [ ] All relevant states are specified

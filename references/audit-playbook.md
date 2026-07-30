@@ -42,7 +42,7 @@ Sample:
 - narrow, medium, and wide widths;
 - keyboard and reduced-motion behavior;
 - changed files for diff review.
-- the host visual language across at least three routes or page families;
+- the host visual language across the relevant route or page families;
 
 For each finding record:
 
@@ -50,11 +50,12 @@ For each finding record:
 Evidence → principle or contract → user consequence → correction → verification
 ```
 
-Use `node scripts/audit-ui.mjs <repo>` and `node scripts/audit-spacing.mjs <repo>` as
-static lead generators. Also use `node scripts/audit-component-use.mjs <repo>` to find
-possible hand-written substitutes and unexamined default variants. The spatial audit skips protected canonical and generated source
-unless explicitly included. Confirm every reported candidate before presenting it as a
-defect.
+Use `node scripts/audit-ui.mjs <repo>`, `node scripts/audit-spacing.mjs <repo>`, and
+`node scripts/audit-color.mjs <repo>` as static lead generators. Also use
+`node scripts/audit-component-use.mjs <repo>` to find possible hand-written substitutes
+and unexamined default variants. The spatial and color audits skip protected canonical and
+generated source unless explicitly included. Confirm every reported candidate before
+presenting it as a defect.
 
 Never score hierarchy, balance, spacing rhythm, or visual mass from static source alone.
 Inspect rendered evidence or mark that item unverified.
@@ -103,21 +104,29 @@ rendered context. Do not call a familiar convention defective by itself.
 Check:
 
 - whether the composition follows a named user decision;
+- whether a governing idea connects product truth, audience state, and visual treatment;
+- whether prominent boundaries, effects, symbols, copy blocks, and graphics have declared
+  operational, informational, perceptual, expressive, or experiential responsibilities;
 - equal-card, KPI-strip, chart-and-sidebar, or default marketing sequences;
 - card, pill, radius, border, shadow, icon-tile, gradient, glass, and glow accumulation;
 - typography and copy that could transfer unchanged to an unrelated product;
 - decorative or fabricated metrics, proof, status, activity, and live indicators;
-- panels and charts without an evidence, decision, or action model;
+- panels, charts, and diagrams without an evidence, decision, relationship, or action model;
+- prose duplicated by a nearby graphic, or graphics that cannot be interpreted without the
+  prose they claim to replace;
+- illustration presented as product proof rather than identity, atmosphere, recognition, or
+  narrative;
 - missing content stress and system states;
-- three structural or visual decisions specific to the product.
+- structural or visual decisions specific to the product;
 - anti-slop accumulation: giant headings, mono eyebrows, off-white/cobalt palettes,
   rulers, ledgers, sparse split sections, unexplained empty regions, and solid CTA bands;
 - repeated route skeletons and missed compound interaction opportunities;
 - default component variants and hand-written substitutes.
 
-Give pattern counts and concrete examples. Three related signals indicate generic drift.
-Five signals across categories justify revisiting the composition, not merely changing
-colors. Apply this to both ordinary slop and anti-slop patterns.
+Give pattern counts and concrete examples. Counts locate repetition for rendered inspection;
+they do not establish a defect. Compare at least one viable alternative, then report whether
+the repeated treatment weakens hierarchy, meaning, identity, evidence, or task performance.
+Apply the same standard to ordinary slop and anti-slop patterns.
 
 ## 6. Component audit
 
@@ -213,6 +222,8 @@ Before delivering:
 - [ ] Every finding has a correction
 - [ ] Static issues precede motion polish
 - [ ] Generic-output signals were judged as an accumulation, not isolated taste
+- [ ] Material visuals were classified as evidence, data, explanation, or illustration
+- [ ] Charts and diagrams preserve their values or relationships without decorative inference
 - [ ] Product-specific decisions and data credibility were verified
 - [ ] Automated candidates were manually confirmed
 - [ ] Accessibility is integrated, not a separate afterthought

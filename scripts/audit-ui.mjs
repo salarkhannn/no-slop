@@ -188,7 +188,7 @@ const aggregateSignalRules = [
       /<(?:div|section|article|aside|main)\b[^>]*(?:class|className)\s*=\s*["'`][^"'`]*(?:card|panel|surface|frame|window|shell|container)[^"'`]*["'`][^>]*>[\s\S]{0,1600}?<(?:div|section|article|aside)\b[^>]*(?:class|className)\s*=\s*["'`][^"'`]*(?:card|panel|surface|frame|window|shell|container)/gi,
     threshold: 2,
     message: "Several named surfaces appear nested inside other surfaces and may be duplicating containment.",
-    correction: "Draw the rendered containment tree and keep each child boundary only when it adds a distinct interaction plane, grouping level, clipping, scrolling, contrast, or elevation.",
+    correction: "Draw the rendered containment tree and keep each child boundary only when it has a distinct operational, informational, perceptual, expressive, or experiential responsibility.",
   },
   {
     id: "surface-container-accumulation",
@@ -198,7 +198,7 @@ const aggregateSignalRules = [
       /(?:\.[a-z0-9_-]*(?:card|panel|tile|surface|widget)[a-z0-9_-]*\s*[{,]|class(?:Name)?\s*=\s*["'`][^"'`]*(?:card|panel|tile|surface|widget))/gi,
     threshold: 10,
     message: "Many card-like surfaces were detected; the view may have become a box monoculture.",
-    correction: "Inspect rendered boundaries and remove containers that add no grouping, interaction, clipping, contrast, or elevation.",
+    correction: "Inspect rendered boundaries, name each responsibility, and compare a less-contained alternative; revise only when repetition weakens meaning, hierarchy, identity, or task performance.",
   },
   {
     id: "rounded-container-accumulation",
@@ -208,7 +208,7 @@ const aggregateSignalRules = [
       /\bborder-radius\s*:\s*(?:var\([^)]+\)|(?:[1-9]\d*|0?\.\d+)(?:px|rem|em))|\brounded-(?:sm|md|lg|xl|2xl|3xl|full|\[[^\]]+\])/gi,
     threshold: 12,
     message: "Rounded treatment appears repeatedly and may be flattening the visual hierarchy.",
-    correction: "Use a small radius scale and reserve rounded boundaries for components that need containment.",
+    correction: "Confirm the radius belongs to a coherent shape grammar and distinguishes object roles; revise default repetition that makes unlike objects read as peers.",
   },
   {
     id: "decorative-effect-accumulation",
@@ -218,7 +218,7 @@ const aggregateSignalRules = [
       /\b(?:linear-gradient|radial-gradient|conic-gradient|backdrop-filter\s*:|backdrop-blur-|filter\s*:\s*blur\()/gi,
     threshold: 3,
     message: "Several gradient, blur, or glass effects were detected.",
-    correction: "Verify each effect follows an established identity or functional visualization; remove effects used only as a polish shortcut.",
+    correction: "Name each effect's perceptual, expressive, experiential, or functional responsibility and verify it belongs to a coherent visual grammar.",
   },
   {
     id: "pill-accumulation",
@@ -228,7 +228,7 @@ const aggregateSignalRules = [
       /\bborder-radius\s*:\s*(?:999|9999)px|\brounded-full\b/gi,
     threshold: 6,
     message: "Pill styling appears repeatedly and may be applied beyond tags, status, or compact selection.",
-    correction: "Keep pill geometry for semantically compact categories and use ordinary controls or text elsewhere.",
+    correction: "Confirm pill geometry consistently encodes a compact action, category, state, selection, or object language instead of appearing by habit.",
   },
   {
     id: "equal-grid-accumulation",
@@ -248,7 +248,7 @@ const aggregateSignalRules = [
       /(?:\.[a-z0-9_-]*(?:icon-(?:box|tile|container)|glyph)[a-z0-9_-]*\s*[{,]|class(?:Name)?\s*=\s*["'`][^"'`]*(?:icon-(?:box|tile|container)|glyph))/gi,
     threshold: 8,
     message: "Repeated icon containers may be decorating every item instead of encoding categories.",
-    correction: "Remove decorative icon boxes or make their shape and color carry stable information.",
+    correction: "Keep containers that establish a target, fallback identity, category, state, or coherent object language; revise those with no recoverable responsibility.",
   },
   {
     id: "anti-slop-eyebrow-accumulation",
@@ -258,7 +258,7 @@ const aggregateSignalRules = [
       /\b(?:eyebrow|section-label|kicker|overline)\b|\b(?:uppercase|text-transform\s*:\s*uppercase)\b[^\n"'`}]*(?:tracking-|letter-spacing\s*:)|\b(?:tracking-|letter-spacing\s*:)[^\n"'`}]*(?:uppercase|text-transform\s*:\s*uppercase)/gi,
     threshold: 4,
     message: "Tiny tracked uppercase labels appear repeatedly and may have become an anti-slop house style.",
-    correction: "Confirm each label clarifies information architecture; remove decorative eyebrows and vary typography from the product direction.",
+    correction: "Confirm each label contributes information architecture, provenance, sequence, voice, or pacing and that repeated treatment belongs to the product direction.",
   },
   {
     id: "anti-slop-display-heading-accumulation",
@@ -288,7 +288,7 @@ const aggregateSignalRules = [
       /\bmin-h-(?:screen|\[(?:6\d\d|[7-9]\d\d|1\d{3,})px\])\b|\bmin-height\s*:\s*(?:[6-9]\d\d|1\d{3,})px/gi,
     threshold: 3,
     message: "Several large minimum-height regions were detected and may create unexplained empty space.",
-    correction: "Confirm in rendered wide and short-height views that every large quiet region improves focus, reading, manipulation, or hierarchy.",
+    correction: "Confirm in rendered wide and short-height views that every large quiet region improves focus, reading, manipulation, hierarchy, identity, pacing, or atmosphere.",
   },
   {
     id: "repeated-page-skeleton-risk",
@@ -448,7 +448,7 @@ const report = {
   totalCandidates: uniqueFindings.length,
   counts,
   note:
-    "Risk hints prioritize static candidates. Aggregate visual-direction and distinctiveness signals indicate accumulation, not proof; confirm them in rendered context.",
+    "Risk hints prioritize static candidates. Aggregate counts locate repetition for rendered comparison; they are not proof of a defect.",
   findings: limitedFindings,
 };
 

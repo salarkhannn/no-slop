@@ -41,7 +41,12 @@ Content requirements:
 - make subcopy explain audience, mechanism, or constraint;
 - use real feature names, outcomes, and data shapes;
 - keep proof near the claim it supports;
-- use one primary call to action and one legitimate alternative at most.
+- establish a clear principal call to action and include alternatives only when they serve
+  a distinct legitimate path.
+- allocate explanation across copy, product evidence, diagrams, interaction, familiar
+  conventions, and links;
+- give every copy block a responsibility such as promise, proof, mechanism, objection,
+  action, voice, or pacing; remove copy that only restates adjacent content.
 
 Familiar patterns are allowed when the content supports them. A centered hero may be the
 best composition for one focused promise; equal cards may be right for true peers. Judge
@@ -91,6 +96,19 @@ Evidence can be:
 Internal audit records, self-awarded quality scores, mock “ready” states, invented usage,
 and fabricated operational data are not evidence and must never appear as proof.
 
+Choose the visual mode before styling:
+
+- use real product evidence when the claim concerns behavior, capability, or output;
+- use data visualization only for sourced values with defined scope and units;
+- use an explanatory diagram only for named relationships, sequence, hierarchy,
+  architecture, or responsibility;
+- use illustration for identity, atmosphere, emotion, or metaphor.
+
+Do not turn feature prose into cards connected by decorative curves. For a diagram or data
+visualization, complete the semantic skeleton in `information-graphics.md`. For
+illustration, state its expressive or experiential responsibility and do not present it as
+proof.
+
 Feature composition:
 
 - group capabilities around user outcomes;
@@ -99,6 +117,7 @@ Feature composition:
 - use icon grids for genuinely peer features, not as a default section generator;
 - pair abstract claims with concrete UI or example;
 - keep each section's visual grammar related to the whole page.
+- use progressive disclosure or links for depth that only part of the audience needs.
 
 Section rhythm:
 
@@ -201,6 +220,10 @@ Motion must stop or simplify for reduced-motion preferences and must not create 
 - feature names without examples;
 - excessive pills and rounded containers;
 - decorative dashboard mockup too small to read;
+- diagram-shaped illustration whose nodes, connectors, positions, colors, or shapes encode
+  no recoverable information;
+- abstract graphics presented as product proof;
+- prose that duplicates a nearby screenshot, diagram, or heading;
 - multiple competing conversion buttons;
 - pricing differences hidden in fine print;
 - scroll animation as the primary source of interest.
@@ -223,5 +246,8 @@ Motion must stop or simplify for reduced-motion preferences and must not create 
 - [ ] Pricing is transparent and comparable
 - [ ] CTA language matches commitment
 - [ ] Product visuals remain legible and truthful
+- [ ] Each material visual is declared as evidence, data visualization, diagram, or illustration
+- [ ] Diagrams and charts encode recoverable relationships or values
+- [ ] Copy and visuals divide the explanatory burden without duplication
 - [ ] Responsive order preserves narrative
 - [ ] Motion explains or demonstrates rather than decorates

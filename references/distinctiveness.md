@@ -1,4 +1,4 @@
-# Product-specific composition
+# Product-specific composition and intention
 
 Use this reference for every page, section, dashboard, marketing surface, redesign, or
 visual critique. Its purpose is not novelty. Its purpose is to prevent a plausible but
@@ -6,30 +6,35 @@ interchangeable interface assembled from statistical defaults.
 
 ## Contents
 
-1. The accumulation test
+1. The accumulation inquiry
 2. Common generic-output patterns
 3. Evidence brief
-4. Composition divergence
-5. Treatment budget
-6. Dashboard rules
-7. Marketing rules
-8. Content and state credibility
-9. Subtractive review
-10. Evidence review
-11. Exceptions and exact-component work
+4. Intentionality review
+5. Composition divergence
+6. Visual grammar
+7. Dashboard rules
+8. Marketing rules
+9. Content and state credibility
+10. Comparative review
+11. Contrastive examples
+12. Evidence review
+13. Exceptions and exact-component work
 
-## 1. The accumulation test
+## 1. The accumulation inquiry
 
 Familiar patterns are often useful. A card, a sidebar, a sans-serif face, or a line chart
 is not a defect by itself. Generic drift appears when several unexamined defaults
 accumulate and none are justified by the product.
 
-Use these thresholds during review:
+Use counts only to locate repetition:
 
-- one isolated pattern: note it only if it harms the task;
-- three related patterns: treat as generic drift and revise the composition;
-- five or more patterns across categories: return to the evidence brief and redesign;
-- any fabricated proof, status, or data: fix regardless of count.
+- note an isolated pattern only when it harms the task, hierarchy, credibility, identity,
+  or supplied direction;
+- inspect related repetition in rendered context and compare at least one viable
+  alternative;
+- revisit the governing idea when patterns accumulate across categories, but do not
+  redesign from counts alone;
+- fix fabricated proof, status, or data regardless of count.
 
 Do not make an interface strange merely to make it different. Preserve learned
 conventions for navigation, controls, semantics, and accessibility. Put product identity
@@ -46,6 +51,9 @@ decisions.
 - chart, activity feed, weather or conditions, and recent-events panels added as filler;
 - every section using the same width, padding, card treatment, and vertical gap;
 - forced symmetry even when the information has unequal priority.
+- diagram-shaped layouts made from letter tiles, colorful paths, satellite cards, and
+  central destination boxes when the positions and connectors encode no recoverable
+  relationship.
 
 ### Treatment monoculture
 
@@ -67,6 +75,7 @@ decisions.
 - vague claims such as “transform your workflow,” “unlock insights,” “seamless,”
   “all-in-one,” or “next-generation”;
 - redundant label, description, hint, and caption text;
+- explanatory prose added only to occupy a layout or restate what media already shows;
 - invented metrics, testimonials, logos, users, activity, or operational status.
 
 ### Motion theater
@@ -124,12 +133,40 @@ For marketing surfaces also record:
 ```text
 Audience:
 Specific promise:
+Desired feeling:
+Governing idea:
 Proof available:
+Evidence carrier and content burden:
+Visual vocabulary:
 Largest objection:
 Conversion:
 ```
 
-## 4. Composition divergence
+## 4. Intentionality review
+
+Review only material, repeated, or high-salience decisions. Small implementation details
+do not need a written defense.
+
+Name one or more responsibilities:
+
+- operational — action, navigation, state, or feedback;
+- informational — hierarchy, context, explanation, or proof;
+- perceptual — grouping, focus, continuity, or rhythm;
+- expressive — identity, voice, emotion, or metaphor;
+- experiential — atmosphere, pacing, delight, or world-building.
+
+Then ask:
+
+1. What is this decision responsible for?
+2. Why is this form appropriate for that responsibility?
+3. How does it connect to the governing idea and visual vocabulary?
+4. What becomes weaker if it is removed or replaced?
+5. Does it compete with a more important decision?
+
+“It looks good” is not enough. A coherent expressive or experiential role is valid even
+when it does not change task completion. The goal is low arbitrariness, not low complexity.
+
+## 5. Composition divergence
 
 For a new page or major redesign, produce three terse, text-only composition candidates
 before styling. Each candidate must organize the same evidence differently.
@@ -147,32 +184,34 @@ decision, not the one that looks most familiar.
 
 Skip this exercise for isolated component fixes and trivial copy or token changes.
 
-The chosen composition must contain at least three decisions that would not transfer
-unchanged to an unrelated product. Examples include object-specific grouping, domain
-units, a workflow-driven control band, a risk-specific comparison, or data freshness
-integrated at the point of use.
+The chosen composition must contain material decisions that would not transfer unchanged
+to an unrelated product. Examples include object-specific grouping, domain units, a
+workflow-driven control band, a risk-specific comparison, or data freshness integrated at
+the point of use.
 
-## 5. Treatment budget
+## 6. Visual grammar
 
-Set a contextual treatment budget before local polish:
+Define a visual grammar before local polish:
 
-- list the surface, depth, radius, color, media, and decorative treatments the direction
-  actually needs;
-- create containment when it adds grouping, interaction, clipping, contrast, or elevation;
+- list the surface, depth, radius, color, media, icon, and decorative treatments that
+  belong to the governing idea;
+- create containment when it adds an operational, informational, perceptual, expressive,
+  or experiential role;
 - record the containment tree for the dominant object; parent and child boundaries must
   name different jobs;
 - keep peer surfaces coherent while allowing hierarchical surfaces to differ;
 - use pills, icon containers, gradients, glass, glow, blur, grids, strong shadow, and
-  saturated color only when their role can be named;
-- avoid nested boundaries that do not add a new interaction or grouping level;
-- define a small radius and depth system appropriate to the chosen character;
-- do not impose an arbitrary maximum number of cards or treatments when the content model
-  genuinely requires them;
-- do not flatten a rich reference into rules and whitespace merely to appear restrained.
+  saturated color when their responsibility and relationship to the grammar can be named;
+- avoid nested boundaries whose responsibilities duplicate each other;
+- define a coherent radius and depth system appropriate to the chosen character;
+- allow dense or maximal compositions when many elements share a narrow, intelligible
+  vocabulary;
+- do not impose arbitrary limits on cards, treatments, text, or effects;
+- do not flatten a rich reference into rules and whitespace merely to appear restrained;
+- do not copy a reference's surface style when its underlying product reason does not
+  transfer.
 
-The budget is an explanation of roles, not a minimalism quota.
-
-## 6. Dashboard rules
+## 7. Dashboard rules
 
 A dashboard must support a named decision. It is not a showcase of chart components.
 
@@ -192,22 +231,25 @@ A dashboard must support a named decision. It is not a showcase of chart compone
   metric.
 - Prefer a decisive work surface over a mosaic of equally decorated summaries.
 
-## 7. Marketing rules
+## 8. Marketing rules
 
 Do not treat hero, logo strip, three features, testimonials, pricing, FAQ, and final CTA
 as a mandatory sequence.
 
 - Include a section only when it advances the argument or resolves an objection.
 - Let available proof determine the sequence.
-- Use concrete product behavior, screenshots, examples, or sourced outcomes instead of
-  generic illustration.
+- Use concrete product behavior, screenshots, examples, or sourced outcomes for proof.
+- Use illustration for identity, atmosphere, emotion, or metaphor when that role is
+  explicit; never present it as product or quantitative evidence.
+- Allocate explanation across copy, product evidence, diagrams, interaction, and links.
+  Do not add prose when another medium already carries the same information.
 - Avoid a dashboard mockup that is too small or implausible to communicate anything.
 - Do not invent customer quotes, company logos, usage numbers, or performance claims.
 - Vary section density because the argument changes, not to alternate background colors.
 - Hide the brand mark during review. If the page could represent any competitor without
   structural changes, revise it.
 
-## 8. Content and state credibility
+## 9. Content and state credibility
 
 - Label fixtures and generated examples as sample data.
 - Never imply real-time status unless the implementation has a real source and freshness
@@ -216,30 +258,49 @@ as a mandatory sequence.
   uneven item counts.
 - Distinguish zero, unknown, unavailable, stale, and not applicable.
 - Remove any metric whose source, comparison period, or user consequence cannot be named.
-- Remove any panel whose absence would not change understanding or action.
+- Remove any panel, copy block, graphic, or effect that does not materially strengthen
+  clarity, proof, hierarchy, recognition, identity, pacing, emotion, or interaction.
 
-## 9. Subtractive review
+## 10. Comparative review
 
 After the first complete pass:
 
 1. Outline every surface.
-2. Name each boundary's grouping, interaction, clipping, scroll, contrast, or elevation
-   role; remove one unnecessary parent or child boundary at a time.
-3. Remove decorative icons that do not encode information or improve recognition.
+2. Name each boundary's operational, informational, perceptual, expressive, or experiential
+   role; compare with one redundant boundary removed.
+3. Remove icons that encode nothing and contribute neither recognition nor identity.
 4. Remove duplicated labels and repeated summaries.
 5. Consolidate equal-priority regions that are not truly peers.
-6. Reduce visual effects by roughly one quarter, then reassess hierarchy.
+6. Compare a quieter and a more expressive treatment for contested regions. Keep the
+   version whose clarity, character, and consequence best fit the governing idea.
 7. Check the interface in grayscale and with brand marks hidden.
 8. Re-run the static, responsive, accessibility, and state gates.
 
 Do not remove useful affordances, focus indicators, status semantics, or error context in
-the name of minimalism.
+the name of minimalism. Do not preserve arbitrary decoration in the name of expressiveness.
 
-## 10. Evidence review
+## 11. Contrastive examples
+
+Use these as reasoning examples, not style recipes.
+
+| Pattern | Arbitrary use | Intentional use |
+| --- | --- | --- |
+| Shadow or offset border | Applied to every card to simulate polish | Explains elevation, overlap, selection, or a coherent physical metaphor |
+| Eyebrow or overline | Generic category phrase above every heading | Supplies sequence, scope, provenance, or a recurring editorial voice |
+| Letter or number tile | Invented identifier attached to every item | Real identity fallback, durable object token, or identifier used elsewhere |
+| Glow | Generic technology atmosphere | Focus, active state, emitted light, or part of a coherent environmental system |
+| Extra copy | Restates the heading or fills empty space | Resolves an objection, supplies proof, changes voice, or controls pacing |
+| Dense composition | Mixes unrelated gradients, glass, cards, and ornament | Uses many elements from one narrow visual vocabulary |
+| Diagram | Places prose in boxes joined by decorative curves | Encodes named entities, relationships, direction, order, values, or state |
+| Quiet composition | Removes depth and evidence to appear restrained | Concentrates attention because product media, hierarchy, or interaction carries the work |
+
+## 12. Evidence review
 
 Do not self-award a numerical distinctiveness score. Record observable evidence:
 
 - three decisions that would not transfer unchanged to another product;
+- the governing idea, visual vocabulary, and responsibilities of material decisions;
+- how copy, evidence, diagrams, interaction, and illustration divide the explanatory load;
 - the topology and task reason;
 - host patterns preserved, questioned, and rejected;
 - ordinary-slop and anti-slop signals found and resolved;
@@ -250,7 +311,7 @@ Do not self-award a numerical distinctiveness score. Record observable evidence:
 A fabricated data or proof item is an automatic failure. If the reasons are merely
 “modern,” “clean,” “premium,” “balanced,” or “best practice,” revise the direction.
 
-## 11. Exceptions and exact-component work
+## 13. Exceptions and exact-component work
 
 Canonical components should remain exact. Do not mutate a button, table, dialog, or
 control merely to make it more distinctive. Apply this reference to page composition,

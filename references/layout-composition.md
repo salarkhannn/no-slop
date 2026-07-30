@@ -207,13 +207,10 @@ Symptom: shell, section, showcase frame, window, panel, card, and inner card eac
 background, border, radius, padding, or shadow around the same content.
 
 Fix: draw the visual containment tree and name the unique role of every boundary. A child
-surface is justified only when it adds a distinct interaction plane, semantic group,
-clipping rule, scroll region, contrast, or elevation. When parent and child describe the
-same region, remove one layer of chrome and let alignment, spacing, or a single divider
-carry the relationship.
-
-Three visible boundaries around the same object require an explicit explanation for every
-level and a rendered comparison with one layer removed. Count visual boundaries, not DOM
+surface is justified only when it adds a distinct operational, informational, perceptual,
+expressive, or experiential responsibility. When parent and child describe the same region,
+compare the current treatment with one layer removed and keep the version that makes the
+relationship, affordance, or product character clearer. Count visual boundaries, not DOM
 wrappers.
 
 ### Spacing without hierarchy

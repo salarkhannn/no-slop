@@ -15,10 +15,13 @@ Resolve visual direction from:
 5. a documented fallback direction.
 
 Do not treat the most common CSS treatment in the repository as proof of intent.
+Treat supplied references as evidence of desirable traits, relationships, and character,
+not as complete templates or unquestionable answers. Extract what transfers and why.
 
 ## 2. Audit the host language
 
-Sample the shell and at least three representative routes or page families. Inventory:
+Sample the shell and enough representative routes to cover the relevant page families.
+Inventory:
 
 - topology, navigation, focal anchors, density, and useful-space allocation;
 - typeface source, available styles, weight distribution, typography, color, surface,
@@ -30,13 +33,13 @@ Sample the shell and at least three representative routes or page families. Inve
 Classify repeated patterns:
 
 ```text
-Preserve — intentional, task-supporting, recognizable, and consistently implemented.
-Question — plausible but generic, weakly justified, or over-repeated.
-Reject — harmful to task, accessibility, credibility, identity, or supplied direction.
+Preserve — intentional, coherent, recognizable, and effective in its declared role.
+Question — plausible but generic, weakly connected to the governing idea, or over-repeated.
+Reject — harmful to task, accessibility, credibility, hierarchy, identity, or direction.
 ```
 
-Three related questionable signals require a visual challenge. Five signals across
-categories require revisiting the page family, not recoloring it.
+Use repeated signals to choose where to inspect and compare alternatives. Counts do not
+prove drift and never require automatic subtraction or redesign.
 
 ## 3. Ordinary slop signals
 
@@ -71,7 +74,8 @@ Do not solve ordinary slop by applying this entire counter-style.
 Record:
 
 ```text
-Product character:
+Product truth and governing idea:
+Audience state and desired feeling:
 Primary objects:
 Primary task and interaction:
 Topology:
@@ -80,20 +84,42 @@ Density:
 Symmetry:
 Surface and depth:
 Typography, including preserve/revise/replace typeface decision and weight budget:
-Color behavior:
-Media or illustration:
+Color ownership and host mode — preserve, repair, or create:
+Base family, accent, contrast, modes, semantic states, and chart behavior:
+Evidence carrier and content burden:
+Visual vocabulary and deliberate rule breaks:
 Interaction richness:
-Distinctive motif:
 Reference traits to carry:
 Host patterns to preserve:
 Host patterns to question:
 Host patterns to reject:
 ```
 
-Every line needs a product, task, content, brand, or reference reason. “Clean,” “modern,”
-“premium,” “minimal,” and “not AI-looking” are insufficient.
+For each material, repeated, or high-salience decision, name an operational, informational,
+perceptual, expressive, or experiential responsibility. Every line needs a product, task,
+content, identity, or reference reason. “Clean,” “modern,” “premium,” “minimal,” and “not
+AI-looking” are insufficient.
+Use `color-systems.md` when the palette is created, materially repaired, themeable, or
+responsible for data or user-authored colors.
 
-## 6. Challenge protocol
+## 6. Reference extraction
+
+For each supplied reference record:
+
+```text
+Observed trait:
+Responsibility in the reference:
+Underlying product or audience reason:
+What transfers:
+What does not transfer:
+```
+
+Carry relationships and decision logic before surface styling. A playful media collage,
+quiet product demonstration, dense data canvas, or restrained editorial page may each be
+valid. Do not average unrelated references into one style and do not treat a favored
+reference as gospel.
+
+## 7. Challenge protocol
 
 When the requested result conflicts with the host visual style:
 

@@ -5,31 +5,56 @@
       "id": "developer-tool-landing",
       "surface": "marketing",
       "prompt": "Create a landing page for an open-source developer tool with only repository documentation as proof.",
-      "stress": ["no invented metrics", "principal GitHub navigation CTA", "technical demonstration"]
+      "stress": [
+        "no invented metrics",
+        "principal GitHub navigation CTA",
+        "technical demonstration",
+        "palette must come from repository identity rather than a default blue developer-tool theme"
+      ]
     },
     {
       "id": "crm-record-workspace",
       "surface": "product",
       "prompt": "Create a CRM account workspace for repeated relationship review and inline property editing.",
-      "stress": ["split context", "typed properties", "activity and permissions"]
+      "stress": [
+        "split context",
+        "typed properties",
+        "activity and permissions",
+        "selection, focus, health, and relationship labels must remain distinct"
+      ]
     },
     {
       "id": "issue-tracker",
       "surface": "product",
       "prompt": "Create an issue tracker for triage, nested work, saved filters, and bulk operations.",
-      "stress": ["filter builder", "grouped list", "keyboard workflow"]
+      "stress": [
+        "filter builder",
+        "grouped list",
+        "keyboard workflow",
+        "dense neutral hierarchy without using disabled contrast for secondary content"
+      ]
     },
     {
       "id": "media-notes",
       "surface": "product",
       "prompt": "Create a personal knowledge app for mixed links, images, notes, and saved collections.",
-      "stress": ["heterogeneous media", "masonry or gallery reasoning", "content stress"]
+      "stress": [
+        "heterogeneous media",
+        "masonry or gallery reasoning",
+        "content stress",
+        "user-authored and image colors must not be mistaken for interface semantics"
+      ]
     },
     {
       "id": "project-gallery",
       "surface": "product",
       "prompt": "Create a studio project workspace where visuals, status, client, budget, and messages affect selection.",
-      "stress": ["media-led cards", "peer symmetry", "detail inspection"]
+      "stress": [
+        "media-led cards",
+        "peer symmetry",
+        "detail inspection",
+        "interface palette must support rather than compete with project imagery"
+      ]
     },
     {
       "id": "enterprise-system",
@@ -39,20 +64,119 @@
         "host compatibility",
         "inherited typeface and weight challenge",
         "containment-depth audit",
-        "data-grid interactions"
+        "data-grid interactions",
+        "preserve a mature non-default palette and repair only evidenced failures"
       ]
     },
     {
       "id": "bare-admin",
       "surface": "new-system",
       "prompt": "Create an operations console in a bare React repository with no design system.",
-      "stress": ["canonical component fallback", "decision-led dashboard", "error and stale states"]
+      "stress": [
+        "canonical component fallback",
+        "decision-led dashboard",
+        "error and stale states",
+        "create a palette through rendered neutral candidates without treating canonical tokens as product direction"
+      ]
     },
     {
       "id": "settings-form",
       "surface": "product",
       "prompt": "Create a simple notification settings form without making the task theatrically complex.",
-      "stress": ["proportional composition", "submitted versus immediate choice", "restraint without anti-slop styling"]
+      "stress": [
+        "proportional composition",
+        "submitted versus immediate choice",
+        "restraint without anti-slop styling",
+        "focus and selection remain visible in light, dark, and forced-colors modes"
+      ]
+    },
+    {
+      "id": "themeable-crm",
+      "surface": "product",
+      "prompt": "Create a CRM used by multiple customer organizations that can supply one brand accent while the product retains reliable actions, focus, selection, and relationship health.",
+      "stress": [
+        "tenant accent is untrusted input",
+        "brand and semantic states are independently tunable",
+        "light and dark mode contrast",
+        "user-authored labels"
+      ]
+    },
+    {
+      "id": "operational-analytics",
+      "surface": "product",
+      "prompt": "Create an operational analytics workspace with categorical series, ordered severity, comparison, selection, alert states, and dense tabular context.",
+      "stress": [
+        "chart palette is not the product accent repeated",
+        "adjacent-series discrimination",
+        "non-color encodings and legends",
+        "dark-mode data verification"
+      ]
+    },
+    {
+      "id": "brand-led-consumer",
+      "surface": "marketing-and-product",
+      "prompt": "Create a consumer membership experience from supplied brand photography, packaging colors, and an established retail identity.",
+      "stress": [
+        "brand evidence has precedence",
+        "media colors do not leak into semantic states",
+        "quiet utility screens still feel related",
+        "no generic SaaS palette substitution"
+      ]
+    },
+    {
+      "id": "monochrome-editor",
+      "surface": "product",
+      "prompt": "Create a document editor whose identity is primarily typographic and monochrome, with comments, tracked changes, selection, focus, and destructive actions.",
+      "stress": [
+        "accent restraint without losing interaction states",
+        "selection and focus are distinct",
+        "comment authors remain distinguishable",
+        "contrast hierarchy carries most structure"
+      ]
+    },
+    {
+      "id": "mature-nonblue-system",
+      "surface": "existing-system",
+      "prompt": "Add a permissions audit workspace to a mature product with a documented plum accent, warm neutral surfaces, and established semantic state colors.",
+      "stress": [
+        "preserve mode must win over fashionable replacement",
+        "canonical components adapt at the integration seam",
+        "role-only semantic mapping",
+        "repair requires rendered evidence"
+      ]
+    },
+    {
+      "id": "expressive-brand-world",
+      "surface": "marketing",
+      "prompt": "Create a media-rich landing page from supplied product recordings, testimonials, playful brand artifacts, and an established desktop metaphor.",
+      "stress": [
+        "high visual density may be the right answer",
+        "every effect and artifact belongs to a coherent visual vocabulary",
+        "illustration and atmosphere are not presented as product proof",
+        "responsive composition preserves meaning without shrinking a desktop collage"
+      ]
+    },
+    {
+      "id": "workflow-explanation",
+      "surface": "marketing-and-product",
+      "prompt": "Explain how one shared brief moves through four specialist roles, produces competing proposals, and reaches a human approval gate.",
+      "stress": [
+        "choose a table, sequence, comparison, or diagram from the reader question",
+        "diagram labels and relationships remain recoverable without prose reconstruction",
+        "no decorative initials, colored splines, or floating cards standing in for semantics",
+        "the narrow layout preserves order and relationships"
+      ]
+    },
+    {
+      "id": "broad-product-marketing",
+      "surface": "marketing",
+      "prompt": "Create a landing page for a broad collaborative product with many capabilities, real product captures, and no credible numerical claims.",
+      "stress": [
+        "content burden is allocated before sections are added",
+        "each module carries one claim or proof responsibility",
+        "progressive disclosure handles depth without filler copy",
+        "product evidence replaces generic feature-card accumulation"
+      ]
     }
   ]
 }

@@ -12,11 +12,14 @@ const selectionPath = join(skillRoot, "assets", "component-selection.json");
 const evalsPath = join(skillRoot, "evals", "cases.json");
 const requiredGuidance = [
   "references/visual-direction.md",
+  "references/color-systems.md",
   "references/composition-grammar.md",
   "references/compound-patterns.md",
   "references/symmetry-balance.md",
   "references/evaluation.md",
   "scripts/audit-component-use.mjs",
+  "scripts/audit-color.mjs",
+  "scripts/test-audit-color.mjs",
 ];
 const errors = [];
 
@@ -77,8 +80,8 @@ if (selection.components?.length !== 49) {
 for (const dimension of ["frequency", "importance", "expressiveness"]) {
   if (!selection.dimensions?.[dimension]) errors.push(`Missing selection dimension: ${dimension}`);
 }
-if (!Array.isArray(evaluations.cases) || evaluations.cases.length < 8) {
-  errors.push("Blind evaluation suite must contain at least 8 cases");
+if (!Array.isArray(evaluations.cases) || evaluations.cases.length < 13) {
+  errors.push("Blind evaluation suite must contain at least 13 cases");
 }
 for (const relativePath of requiredGuidance) {
   if (!existsSync(join(skillRoot, relativePath))) errors.push(`Missing required guidance: ${relativePath}`);
@@ -87,6 +90,12 @@ for (const testCase of evaluations.cases ?? []) {
   if (!testCase.id || !testCase.surface || !testCase.prompt || !Array.isArray(testCase.stress)) {
     errors.push(`Invalid blind evaluation case: ${JSON.stringify(testCase)}`);
   }
+}
+if (
+  new Set((evaluations.cases ?? []).map((testCase) => testCase.id)).size !==
+  (evaluations.cases ?? []).length
+) {
+  errors.push("Blind evaluation case ids must be unique");
 }
 for (const name of publicComponents) {
   const sourceName = manifest.aliases?.[name] ?? name;

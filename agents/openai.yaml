@@ -1,4 +1,4 @@
 interface:
   display_name: "No Slop"
-  short_description: "Build distinctive, high-craft web interfaces"
-  default_prompt: "Use $no-slop to challenge this codebase's visual defaults—including its typeface, weight hierarchy, and unnecessary containment—then compose and verify a product-specific interface."
+  short_description: "Build distinctive, intentional web interfaces"
+  default_prompt: "Use $no-slop to establish a product-specific governing idea, choose components and visual media intentionally, then implement and verify the interface in context."

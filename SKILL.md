@@ -13,12 +13,12 @@ composition, components, responsive behavior, and states before motion polish.
 
 1. Preserve the host framework, architecture, package manager, data flow, and user-owned
    code. Do not automatically preserve its visual style.
-2. Audit the host visual language before extending it. Question patterns that appear
-   generic, AI-generated, or generated in reaction to AI slop. Three related signals or
-   five cross-category signals require an explicit keep/revise/reject decision.
+2. Audit the host visual language before extending it. Treat repeated ordinary-slop and
+   anti-slop signals as prompts for rendered comparison, not automatic defects. Keep,
+   revise, or reject them from product evidence and user consequence.
 3. Follow explicit user references and requested character above inherited visual defaults,
    while preserving accessibility and functional correctness.
-4. Write a visual-direction brief before a new page or material redesign.
+4. Write an intention and visual-direction brief before a new page or material redesign.
 5. Compare three structurally different composition concepts. Rearranging the same
    title/cards/table skeleton does not count.
 6. Select every visible interaction by semantics, then select its variant by hierarchy,
@@ -41,9 +41,13 @@ composition, components, responsive behavior, and states before motion polish.
     them only when their character, metrics, available weights, and product fit survive a
     representative rendered comparison.
 14. Make every visible container earn its boundary. Nest surfaces only when the child adds
-    a distinct interaction plane, grouping level, clipping rule, scroll region, contrast,
-    or elevation; otherwise flatten the boundary and express structure with alignment and
-    spacing.
+    a distinct operational, informational, perceptual, expressive, or experiential role;
+    otherwise flatten the boundary and express structure with alignment and spacing.
+15. Treat the canonical component palette as an exact component contract, not a default
+    product palette. Preserve, repair, or create the host color system from evidence.
+16. Choose visual media from the reader's question and available evidence. Do not turn
+    prose into decorative cards, nodes, connectors, charts, or diagrams merely to create
+    visual interest.
 
 ## Resolve instruction precedence
 
@@ -90,6 +94,7 @@ Run `node scripts/scan-ui.mjs <repo>` when useful. For visual risk leads run:
 node scripts/audit-ui.mjs <repo>
 node scripts/audit-component-use.mjs <repo>
 node scripts/audit-spacing.mjs <repo>
+node scripts/audit-color.mjs <repo>
 ```
 
 Treat output as prompts for inspection, never as automatic defects.
@@ -116,6 +121,7 @@ editorial split sections, enormous unused regions, and solid full-width CTA band
   `composition-grammar.md`, `layout-composition.md`, and `distinctiveness.md`.
 - Spacing, rails, density, containers: `spatial-system.md`.
 - Visual tokens and character: `design-foundations.md`.
+- Palette selection, theming, color roles, and data visualization: `color-systems.md`.
 - Component choice: `component-selection.md`; use `recommend-component.mjs` and
   `extract-component-variants.mjs`.
 - Canonical integration: `component-contracts.md` and `component-catalog.md`.
@@ -123,6 +129,7 @@ editorial split sections, enormous unused regions, and solid full-width CTA band
 - Peer geometry and visual balance: `symmetry-balance.md`.
 - Product applications: `product-patterns.md`.
 - Marketing and business pages: `marketing-patterns.md`.
+- Diagrams, charts, product evidence, and illustration: `information-graphics.md`.
 - Responsive behavior and accessibility: `responsive-accessibility.md`.
 - Motion naming: `motion-language.md`.
 - Motion implementation/review: `motion-standards.md`.
@@ -146,16 +153,18 @@ Content/data source and trust:
 Primary action:
 What can be deferred:
 
-Product character:
+Product truth and governing idea:
+Audience state and desired feeling:
 Topology and focal anchor:
 Density:
 Symmetry:
 Surface and depth, including containment tree:
 Typography, including typeface decision and weight budget:
-Color behavior:
-Media or illustration:
+Color ownership and host mode — preserve, repair, or create:
+Base family, accent, contrast, modes, semantic states, and chart behavior:
+Evidence carrier and content burden:
+Visual vocabulary and deliberate rule breaks:
 Interaction richness:
-Distinctive motif:
 Reference traits to carry:
 Host patterns to preserve/question/reject:
 ```
@@ -184,6 +193,27 @@ versus “table above cards” is not a structural difference.
 Reject two concepts with task- and content-based reasons. Choose one because it improves a
 decision or interaction, not because it looks less familiar. Read
 `references/composition-grammar.md`.
+
+## Choose visual media before styling
+
+Classify each material visual as one of:
+
+- product evidence — a real interface, output, demonstration, or annotated artifact;
+- data visualization — values, comparisons, distributions, trends, or correlations;
+- explanatory diagram — sequence, hierarchy, causality, architecture, or responsibility;
+- illustration — identity, atmosphere, emotion, or metaphor.
+
+Use a graphic only when spatial or visual encoding helps the reader compare, trace, locate,
+recognize, or understand a relationship. For data visualizations and explanatory diagrams,
+write the reader question, takeaway, entities, relationships, direction or order, values or
+states, and reason spatial arrangement matters before drawing. Produce a monochrome
+semantic skeleton before applying the visual direction.
+
+Prefer real product evidence when the claim is about product behavior. Keep illustration
+when it has an explicit expressive or experiential responsibility, but never present it as
+proof or let it imply data or relationships that do not exist. Reject diagram-shaped
+decoration whose labels, connectors, positions, colors, or shapes encode nothing
+recoverable. Read `references/information-graphics.md`.
 
 ## Select components and variants before hand-writing UI
 
@@ -262,12 +292,14 @@ and fabricated proof is.
 
 - Organize claims around real product behavior and buyer objections.
 - Put legible product evidence or a real demonstration near major claims.
+- Allocate explanation across copy, product evidence, interaction, familiar conventions,
+  and links; do not make prose carry information a clearer visual can carry.
 - Do not display mock quality scores, audit panels, fake usage, status, customer logos,
   testimonials, or performance metrics as proof.
 - Give the principal conversion action an explicit component and variant decision.
 - Consider expressive canonical variants for rare hero or final conversion actions.
-- Use media, illustration, diagrams, or product crops when they materially explain or
-  establish identity.
+- Use media, illustration, diagrams, or product crops only in their declared role:
+  evidence, explanation, or expression.
 - Let sections change topology as the argument changes.
 
 Read `marketing-patterns.md`.
@@ -292,30 +324,37 @@ Never use motion to create interest in a structurally flat page.
 
 ## Build/refine workflow
 
-1. Establish purpose, user, task, objects, content source, and constraints.
+1. Establish purpose, user, task, objects, content source, constraints, product truth, and
+   governing idea.
 2. Inspect architecture, design system, representative routes, and rendered screens.
 3. Audit the host visual style; preserve, question, or reject repeated patterns.
 4. Compare the current typeface with at least one credible alternative when its intent or
    fit is unclear. Render representative title, body, control, numeric, and stress text.
-5. Write evidence and visual-direction briefs, including a typeface decision, weight
-   budget, and containment tree.
-6. Compare three structurally different composition concepts and reject two.
-7. Choose topology, rails, spacing ownership, density, surface model, responsive
+5. Write intention, evidence, and visual-direction briefs, including typeface and
+   color-system decisions, a weight budget, visual vocabulary, content burden, and
+   containment tree.
+6. When creating or materially repairing a palette, render achromatic, warm-neutral, and
+   cool-neutral candidates in the same representative screen. Record why two lose.
+7. Compare three structurally different composition concepts and reject two.
+8. Classify each planned material visual. For any diagram or data visualization, complete
+   the semantic skeleton and reject it if text, a table, or real product evidence is clearer.
+9. Choose topology, rails, spacing ownership, density, surface model, responsive
    transformations, and symmetry contracts.
-8. Identify compound patterns that preserve context or reduce steps.
-9. Select a component and variant for every visible interaction.
-10. Implement largest regions first, then states and local polish.
-11. Render narrow, medium, and wide views with long, sparse, empty, loading, error, and
+10. Identify compound patterns that preserve context or reduce steps.
+11. Select a component and variant for every visible interaction.
+12. Implement largest regions first, then states and local polish.
+13. Render narrow, medium, and wide views with long, sparse, empty, loading, error, and
     permission states.
-12. Run static audits and manually confirm candidates.
-13. Perform a containment pass: outline every visible surface, name each boundary's unique
-    role, and remove parent or child chrome when the roles duplicate.
-14. Perform typography, subtraction, and symmetry passes. In ordinary product regions,
+14. Run static audits and manually confirm candidates.
+15. Perform a responsibility pass: outline material copy, media, surfaces, effects, and
+    graphics; name each operational, informational, perceptual, expressive, or experiential
+    role; compare alternatives where roles duplicate or conflict.
+16. Perform typography, content-economy, and symmetry passes. In ordinary product regions,
     regular-weight text should normally outnumber semibold/bold text.
-15. Add only justified motion.
-16. Verify semantics, keyboard, focus, contrast, zoom, overflow, and reduced motion.
-17. Run lint, type, unit, build, and relevant visual checks.
-18. Report evidence, commands, viewports, states, deviations, and risks.
+17. Add only justified motion.
+18. Verify semantics, keyboard, focus, contrast, zoom, overflow, and reduced motion.
+19. Run lint, type, unit, build, and relevant visual checks.
+20. Report evidence, commands, viewports, states, deviations, and risks.
 
 ## Audit workflow
 
@@ -324,7 +363,8 @@ Audits are read-only unless implementation is separately requested.
 1. State scope, routes, states, viewports, and evidence limitations.
 2. Inspect source and rendered output.
 3. Challenge both ordinary slop and anti-slop accumulation.
-4. Audit topology, focal point, useful-space allocation, route differentiation, compound
+4. Audit governing idea, decision responsibility, content burden, visual-media choice,
+   topology, focal point, useful-space allocation, route differentiation, compound
    interaction opportunities, component/variant choices, symmetry, states, and responsive
    transformations.
 5. Run static lead generators and confirm each reported item.
@@ -337,14 +377,21 @@ A build is done only when the following are demonstrated, not self-scored:
 
 - screenshots or rendered inspection at relevant narrow, medium, and wide widths;
 - a documented visual direction and host-style preserve/question/reject decision;
+- a governing idea, visual vocabulary, and responsibility for material copy, media,
+  effects, and graphics;
+- a documented preserve/repair/create color decision, rendered candidate comparison when
+  the neutral system changed, and distinct accent, action, selection, focus, state, and
+  chart roles;
 - a rendered typeface decision, explicit weight hierarchy, and no synthetic or
   indiscriminate bold;
 - three structural concepts and task-based rejection of two;
-- a route-specific topology and at least three product-specific decisions;
+- a route-specific topology and material product-specific decisions;
 - component and variant records for visible interactions, including expressive CTA
   consideration when applicable;
 - complete compound interactions and state behavior;
 - a containment tree in which every visible nested boundary has a distinct role;
+- a declared visual mode for material graphics, with a semantic skeleton for diagrams and
+  data visualizations and no diagram-shaped decoration presented as explanation;
 - no accidental peer asymmetry or unexplained empty region;
 - credible content and proof;
 - keyboard, focus, semantics, contrast, zoom, overflow, and reduced motion checks;

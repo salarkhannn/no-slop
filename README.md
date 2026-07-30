@@ -210,8 +210,12 @@ Use $no-slop to match the bundled canonical React components exactly.
 The package includes:
 
 - design, layout, component, responsive, accessibility, and motion guidance;
-- visual-direction challenge, structural composition, compound-pattern, and symmetry
-  contracts;
+- governing-idea, visual-direction, structural-composition, compound-pattern, and symmetry
+  guidance;
+- intentional product evidence, data visualization, explanatory diagram, illustration,
+  icon, and content decisions;
+- color-system creation and repair through rendered neutral-family comparison and explicit
+  semantic ownership;
 - a canonical React component kit and selection data;
 - scripts for repository scanning, UI and component-use audits, spacing audits, component
   and variant selection, dependency resolution, and asset verification;
